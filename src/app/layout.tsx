@@ -17,10 +17,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// export const metadata: Metadata = {
+//   title: "Dcodes - AI Solutions for Modern Businesses",
+//   description:
+//     "Stay ahead with our cutting-edge AI solutions tailored for your business needs.",
+// };
+
+
 export const metadata: Metadata = {
-  title: "Dcodes - AI Solutions for Modern Businesses",
+  metadataBase: new URL("https://www.dcodestech.com"),
+  title: "Dcodes Technologies – IT Solutions, Web & App Development",
   description:
-    "Stay ahead with our cutting-edge AI solutions tailored for your business needs.",
+    "Dcodes Technologies provides high-performance web, software, ERP, mobile app & digital marketing solutions.",
+  openGraph: {
+    title: "Dcodes Technologies – IT & Web Solutions",
+    description:
+      "We offer scalable IT solutions like websites, ERPs, apps & SEO to grow your business.",
+    url: "https://www.dcodestech.com",
+    images: [
+      {
+        url: "https://www.dcodestech.com/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

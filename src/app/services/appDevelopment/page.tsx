@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Android } from "@/components/magicui/android";
@@ -49,14 +48,11 @@ import {
 } from 'react-icons/si';
 import Link from "next/link";
 
+// SEO મેટા ટેગ્સ માટે Head import
+import Head from 'next/head';
+
 // Tech Stack Logos Component
-// import { motion } from "framer-motion";
-
-// import { motion } from 'framer-motion';
-
-
 const TechStack = () => {
-  // Updated techStack array to include the Icon component
   const techStack = [
     { name: 'Flutter', color: '#02569B', Icon: SiFlutter },
     { name: 'React Native', color: '#61DAFB', Icon: SiReact },
@@ -75,6 +71,8 @@ const TechStack = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
       <div className="max-w-6xl mx-auto text-center">
         <motion.h3
@@ -83,6 +81,7 @@ const TechStack = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          itemProp="name"
         >
           Built With Modern Technologies
         </motion.h3>
@@ -96,22 +95,25 @@ const TechStack = () => {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/Thing"
             >
               <div
                 className="w-16 h-16 rounded-lg flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
                 style={{ backgroundColor: `${tech.color}20` }}
+                aria-label={`${tech.name} technology logo`}
               >
-                {/* --- THIS IS THE CHANGED PART --- */}
-                {/* We render the icon component and pass style/className */}
                 <tech.Icon
-                  className="text-3xl" // You can adjust size here
+                  className="text-3xl"
                   style={{ color: tech.color }}
+                  aria-hidden="true"
                 />
-                {/* --- END OF CHANGE --- */}
               </div>
-              <span className="text-gray-400 text-sm font-medium group-hover:text-white transition-colors">
+              <span className="text-gray-400 text-sm font-medium group-hover:text-white transition-colors" itemProp="name">
                 {tech.name}
               </span>
+              <meta itemProp="description" content={`${tech.name} mobile app development technology`} />
             </motion.div>
           ))}
         </div>
@@ -119,10 +121,6 @@ const TechStack = () => {
     </motion.section>
   );
 };
-
-// export default TechStack; // Added export for completeness
-
-
 
 // Industry Use Cases Component
 const IndustryUseCases = () => {
@@ -166,6 +164,8 @@ const IndustryUseCases = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
       <div className="max-w-6xl mx-auto">
         <motion.div 
@@ -178,8 +178,10 @@ const IndustryUseCases = () => {
           <Badge variant="outline" className="mb-6 border-cyan-400/50 text-cyan-400 bg-cyan-400/10">
             Industry Solutions
           </Badge>
-          <h2 className="text-5xl font-extralight mb-6 tracking-tight">Apps We Build For</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-normal">
+          <h2 className="text-5xl font-extralight mb-6 tracking-tight" itemProp="name">
+            Apps We Build For
+          </h2>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-normal" itemProp="description">
             Tailored mobile solutions for diverse industry needs
           </p>
         </motion.div>
@@ -194,16 +196,19 @@ const IndustryUseCases = () => {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/Service"
             >
               <Card className="p-8 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 hover:border-cyan-500/30 transition-all duration-300 h-full">
                 <div className="flex flex-col items-start">
                   <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-500/10 to-blue-500/10 mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <industry.icon className="w-8 h-8 text-cyan-400" />
+                    <industry.icon className="w-8 h-8 text-cyan-400" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-normal mb-4 text-white group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl font-normal mb-4 text-white group-hover:text-cyan-300 transition-colors" itemProp="name">
                     {industry.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed font-normal">
+                  <p className="text-gray-400 text-sm leading-relaxed font-normal" itemProp="description">
                     {industry.description}
                   </p>
                 </div>
@@ -211,14 +216,12 @@ const IndustryUseCases = () => {
             </motion.div>
           ))}
         </div>
-
       </div>
     </motion.section>
   );
 };
 
-// Development Process Componentimport { motion } from "framer-motion";
-
+// Development Process Component
 const DevelopmentProcess = () => {
   const processSteps = [
     { step: "Discovery", icon: "🔍", description: "Requirement analysis & planning" },
@@ -236,6 +239,8 @@ const DevelopmentProcess = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
       <div className="max-w-6xl mx-auto">
         <motion.div 
@@ -245,16 +250,15 @@ const DevelopmentProcess = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight" itemProp="name">
             Our Development Process
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-normal">
+          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-normal" itemProp="description">
             A streamlined approach to delivering exceptional mobile applications from concept to launch.
           </p>
         </motion.div>
         
         <div className="relative">
-          {/* Timeline line */}
           <div 
             className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-500 hidden lg:block"
             aria-hidden="true" 
@@ -264,7 +268,6 @@ const DevelopmentProcess = () => {
             {processSteps.map((step, index) => (
               <motion.div 
                 key={step.step}
-                // This 'relative' is crucial for positioning the dot
                 className={`relative flex flex-col lg:flex-row items-center lg:mb-12 ${
                   index % 2 === 0 ? 'lg:flex-row-reverse' : ''
                 }`}
@@ -272,8 +275,10 @@ const DevelopmentProcess = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
+                itemProp="itemListElement"
+                itemScope
+                itemType="https://schema.org/HowToStep"
               >
-                {/* Content Card */}
                 <div className="lg:w-1/2 lg:px-8 w-full">
                   <motion.div 
                     className={`bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 shadow-xl transition-all duration-300 text-center ${
@@ -290,18 +295,16 @@ const DevelopmentProcess = () => {
                       <span className="text-3xl" role="img" aria-label={step.step}>{step.icon}</span>
                     </div>
                     <div className="lg:inline-block">
-                      <h3 className="text-2xl font-semibold mb-2 text-white">{step.step}</h3>
-                      <p className="text-gray-400 font-normal">{step.description}</p>
+                      <h3 className="text-2xl font-semibold mb-2 text-white" itemProp="name">{step.step}</h3>
+                      <p className="text-gray-400 font-normal" itemProp="text">{step.description}</p>
                     </div>
                   </motion.div>
                 </div>
                 
-                {/* Timeline dot - FIXED */}
                 <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2">
                   <div className="w-5 h-5 rounded-full bg-cyan-400 border-4 border-gray-900 ring-4 ring-cyan-500/30" />
                 </div>
                 
-                {/* Spacer */}
                 <div className="lg:w-1/2" /> 
               </motion.div>
             ))}
@@ -340,6 +343,8 @@ const KeyDifferentiators = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
+      itemScope
+      itemType="https://schema.org/ItemList"
     >
       <div className="max-w-6xl mx-auto">
         <motion.div 
@@ -349,8 +354,8 @@ const KeyDifferentiators = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl font-extralight mb-6 tracking-tight">Why Choose Dcodes?</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-normal">
+          <h2 className="text-5xl font-extralight mb-6 tracking-tight" itemProp="name">Why Choose Dcodes?</h2>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-normal" itemProp="description">
             Delivering excellence through specialized expertise and proven methodologies
           </p>
         </motion.div>
@@ -365,19 +370,22 @@ const KeyDifferentiators = () => {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/Thing"
             >
               <Card className="p-8 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 hover:border-cyan-500/30 transition-all duration-300 h-full">
                 <div className="flex items-start gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Check className="w-6 h-6 text-cyan-400" />
+                      <Check className="w-6 h-6 text-cyan-400" aria-hidden="true" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-normal mb-3 text-white group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-xl font-normal mb-3 text-white group-hover:text-cyan-300 transition-colors" itemProp="name">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 font-normal leading-relaxed">
+                    <p className="text-gray-400 font-normal leading-relaxed" itemProp="description">
                       {item.description}
                     </p>
                   </div>
@@ -401,6 +409,8 @@ const UpdatedHero = () => {
     <motion.section 
       className="min-h-screen flex items-center justify-center px-8 relative"
       style={{ opacity, scale }}
+      itemScope
+      itemType="https://schema.org/WebPage"
     >
       <motion.div 
         className="max-w-6xl mx-auto text-center"
@@ -432,6 +442,7 @@ const UpdatedHero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
+            itemProp="headline"
           >
             <motion.span
               className="inline-block"
@@ -458,6 +469,7 @@ const UpdatedHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
+          itemProp="description"
         >
           Enterprise-grade native & cross-platform apps engineered for performance, security, and scale
         </motion.p>
@@ -473,8 +485,9 @@ const UpdatedHero = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,212,255,0.3)" }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            aria-label="Start your mobile app development project"
           >
-            <Link href={'/connect'} className="relative z-10 font-medium">Start Your Project</Link>
+            <Link href={'/connect'} className="relative z-10 font-medium" itemProp="url">Start Your Project</Link>
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
               initial={{ x: "-100%" }}
@@ -486,8 +499,11 @@ const UpdatedHero = () => {
           <motion.button 
             className="text-sm tracking-wide uppercase text-gray-400 hover:text-cyan-400 transition-all duration-300 relative group font-medium"
             whileHover={{ y: -2 }}
+            aria-label="View mobile app development case studies"
           >
-            View Case Studies
+            <Link href="/case-studies" className="relative z-10">
+              View Case Studies
+            </Link>
             <motion.span 
               className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-cyan-400 to-blue-500"
               initial={{ width: 0 }}
@@ -511,7 +527,6 @@ export default function EnhancedPremiumAppDev() {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.3]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
-  // Define all the missing variables
   const services = [
     {
       id: 1,
@@ -556,15 +571,10 @@ export default function EnhancedPremiumAppDev() {
     "Maintenance, Updates & Feature Rollouts",
     "Scalable Cloud-Connected Architecture",
     "CI/CD & DevOps for Mobile"
-
-// make this in code
-//     Highlight Box:
-// App Store Ready — Every app we build meets the latest Apple App Store & Google Play Store guidelines.
-
   ];
 
   const philosophy = [
-    { principle: "Performance", description: "Lightn ing-fast apps with optimized responsiveness.", icon: "⚡" },
+    { principle: "Performance", description: "Lightning-fast apps with optimized responsiveness.", icon: "⚡" },
     { principle: "User-Centric", description: "Interfaces that simplify navigation and maximize retention.", icon: "👤" },
     { principle: "Scalability", description: "Built to grow whether 10 or 10 million users.", icon: "📈" },
     { principle: "Security", description: "Enterprise-grade protection for data, users, and compliance.", icon: "🔒" }
@@ -573,11 +583,11 @@ export default function EnhancedPremiumAppDev() {
   const faqs = [
     {
       question: "Which platform should I choose for my app?",
-      answer: "It depends on your target audience, budget, and performance needs. We’ll help you decide between native, cross-platform, or hybrid based on your goals."
+      answer: "It depends on your target audience, budget, and performance needs. We'll help you decide between native, cross-platform, or hybrid based on your goals."
     },
     {
       question: "How long does mobile app development take?",
-      answer: "Typically between 4–12 weeks depending on app complexity, platform, and feature set."
+      answer: "Typically between 4-12 weeks depending on app complexity, platform, and feature set."
     },
     {
       question: "Do you handle App Store submissions?",
@@ -608,7 +618,6 @@ export default function EnhancedPremiumAppDev() {
     }
   };
 
-  // Add this ref for the reveal image
   const revealImgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -630,231 +639,353 @@ export default function EnhancedPremiumAppDev() {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen font-normal antialiased overflow-x-hidden">
-      {/* Animated Background Effects */}
-      <div className="fixed inset-0 z-0">
-        <div style={{ height: '200vh', position: 'relative', overflow: 'hidden', right: '-300px' }}>
-          <LaserFlow color="#5f78d1" />
+    <>
+      {/* SEO Meta Tags and Structured Data */}
+      <Head>
+        <title>Enterprise Grade Mobile App Development | Dcodes Mobile Studio</title>
+        <meta name="description" content="Expert mobile app development for iOS, Android, and cross-platform solutions. Enterprise-grade apps with performance, security, and scalability. Get your app launched!" />
+        <meta name="keywords" content="mobile app development, iOS development, Android development, Flutter, React Native, enterprise apps, cross-platform apps, app development company, Gujarat, India" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Enterprise Grade Mobile App Development | Dcodes" />
+        <meta property="og:description" content="Transform your app ideas into scalable digital products with our expert mobile development services." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dcodes.com/mobile-app-development" />
+        <meta property="og:image" content="https://dcodes.com/og-image-mobile-apps.jpg" />
+        <meta property="og:site_name" content="Dcodes Mobile Studio" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Enterprise Mobile App Development | Dcodes" />
+        <meta name="twitter:description" content="Expert iOS & Android app development for startups and enterprises." />
+        <meta name="twitter:image" content="https://dcodes.com/twitter-card-mobile.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://dcodes.com/mobile-app-development" />
+        
+        {/* Structured Data for Local Business */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Dcodes Mobile Studio",
+            "description": "Mobile App Development Company specializing in iOS, Android, and cross-platform solutions",
+            "url": "https://dcodes.com",
+            "logo": "https://dcodes.com/logo.png",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ahmedabad",
+              "addressRegion": "Gujarat",
+              "addressCountry": "IN"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "Customer Service",
+              "availableLanguage": ["English", "Gujarati", "Hindi"]
+            },
+            "sameAs": [
+              "https://linkedin.com/company/dcodes",
+              "https://twitter.com/dcodes",
+              "https://github.com/dcodes"
+            ]
+          })}
+        </script>
+        
+        {/* Structured Data for Service */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Mobile App Development",
+            "serviceType": "Mobile Application Development",
+            "provider": {
+              "@type": "Organization",
+              "name": "Dcodes"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Mobile App Development Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Native iOS Development"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Native Android Development"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Cross-Platform Development"
+                  }
+                }
+              ]
+            }
+          })}
+        </script>
+        
+        {/* Additional Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="Dcodes Mobile Studio" />
+        <meta name="theme-color" content="#000000" />
+        
+        {/* Language and Region */}
+        <meta httpEquiv="content-language" content="en" />
+        <meta name="geo.region" content="IN-GJ" />
+        <meta name="geo.placename" content="Gujarat" />
+      </Head>
+
+      <div className="bg-black text-white min-h-screen font-normal antialiased overflow-x-hidden">
+        {/* Animated Background Effects */}
+        <div className="fixed inset-0 z-0">
+          <div style={{ height: '200vh', position: 'relative', overflow: 'hidden', right: '-300px' }}>
+            <LaserFlow color="#5f78d1" />
+          </div>
+          <div 
+            className="absolute inset-0 pointer-events-none opacity-20 z-10"
+            style={{
+              background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,212,255,0.1), transparent 50%)`
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-20" />
         </div>
-        <div 
-          className="absolute inset-0 pointer-events-none opacity-20 z-10"
-          style={{
-            background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0,212,255,0.1), transparent 50%)`
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-20" />
-      </div>
 
-      <div className="relative z-30">
-        {/* Updated Hero Section */}
-        <UpdatedHero />
+        <div className="relative z-30">
+          {/* Updated Hero Section */}
+          <UpdatedHero />
 
-        {/* What We Deliver Section */}
-        <motion.section 
-          className="py-10  px-8 border-t border-gray-800/50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-6xl mx-auto">
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-extralight mb-6 tracking-tight">What We Deliver</h2>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto font-normal">
-We help businesses turn bold app ideas into scalable digital products that users love. Our mobile development services span across platforms, technologies, and industries.              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Native Development Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 h-full">
-                  <Smartphone className="w-12 h-12 text-cyan-400 mb-6" />
-                  <h3 className="text-2xl font-normal mb-4 text-white">Native iOS & Android</h3>
-                  <p className="text-gray-400 font-normal leading-relaxed">
-                    Deliver seamless performance with fully native Android and iOS apps. 
-                    Built for speed, UX precision, and device-native integration.
-                  </p>
-                </Card>
-              </motion.div>
-
-              {/* Cross-Platform Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 h-full">
-                  <Repeat className="w-12 h-12 text-blue-400 mb-6" />
-                  <h3 className="text-2xl font-normal mb-4 text-white">Cross-Platform</h3>
-                  <p className="text-gray-400 font-normal leading-relaxed">
-                    Launch faster with Flutter and React Native apps. Code once, run anywhere — 
-                    without compromising user experience or functionality.
-                  </p>
-                </Card>
-              </motion.div>
-
-              {/* Enterprise Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-8 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 h-full">
-                  <Server className="w-12 h-12 text-purple-400 mb-6" />
-                  <h3 className="text-2xl font-normal mb-4 text-white">Enterprise Solutions</h3>
-                  <p className="text-gray-400 font-normal leading-relaxed">
-                    Power high-traffic ecosystems with secure, cloud-connected apps optimized 
-                    for large-scale deployments and business-critical operations.
-                  </p>
-                </Card>
-              </motion.div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Add all the new sections */}
-        <IndustryUseCases />
-        <TechStack />
-        <DevelopmentProcess />
-        <KeyDifferentiators />
-
-        {/* About Section */}
-        <motion.section 
-          className="py-32 px-8 border-t border-gray-800/50 relative"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          {/* What We Deliver Section */}
+          <motion.section 
+            className="py-10  px-8 border-t border-gray-800/50"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            itemScope
+            itemType="https://schema.org/ItemList"
+          >
+            <div className="max-w-6xl mx-auto">
               <motion.div 
-                className="lg:col-span-5"
-                initial={{ x: -50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                className="text-center mb-20"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <Badge variant="outline" className="mb-8 border-cyan-400/50 text-cyan-400 bg-cyan-400/10">
-                  Since 2020
-                </Badge>
-                
-                <motion.h2 
-                  className="text-5xl font-extralight mb-12 tracking-tight leading-tight"
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
+                <h2 className="text-5xl font-extralight mb-6 tracking-tight" itemProp="name">What We Deliver</h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto font-normal" itemProp="description">
+                  We help businesses turn bold app ideas into scalable digital products that users love. Our mobile development services span across platforms, technologies, and industries.
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Native Development Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  itemProp="itemListElement"
+                  itemScope
+                  itemType="https://schema.org/Service"
+                >
+                  <Card className="p-8 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 h-full">
+                    <Smartphone className="w-12 h-12 text-cyan-400 mb-6" aria-hidden="true" />
+                    <h3 className="text-2xl font-normal mb-4 text-white" itemProp="name">Native iOS & Android</h3>
+                    <p className="text-gray-400 font-normal leading-relaxed" itemProp="description">
+                      Deliver seamless performance with fully native Android and iOS apps. 
+                      Built for speed, UX precision, and device-native integration.
+                    </p>
+                  </Card>
+                </motion.div>
+
+                {/* Cross-Platform Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  itemProp="itemListElement"
+                  itemScope
+                  itemType="https://schema.org/Service"
+                >
+                  <Card className="p-8 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 h-full">
+                    <Repeat className="w-12 h-12 text-blue-400 mb-6" aria-hidden="true" />
+                    <h3 className="text-2xl font-normal mb-4 text-white" itemProp="name">Cross-Platform</h3>
+                    <p className="text-gray-400 font-normal leading-relaxed" itemProp="description">
+                      Launch faster with Flutter and React Native apps. Code once, run anywhere — 
+                      without compromising user experience or functionality.
+                    </p>
+                  </Card>
+                </motion.div>
+
+                {/* Enterprise Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  itemProp="itemListElement"
+                  itemScope
+                  itemType="https://schema.org/Service"
+                >
+                  <Card className="p-8 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 h-full">
+                    <Server className="w-12 h-12 text-purple-400 mb-6" aria-hidden="true" />
+                    <h3 className="text-2xl font-normal mb-4 text-white" itemProp="name">Enterprise Solutions</h3>
+                    <p className="text-gray-400 font-normal leading-relaxed" itemProp="description">
+                      Power high-traffic ecosystems with secure, cloud-connected apps optimized 
+                      for large-scale deployments and business-critical operations.
+                    </p>
+                  </Card>
+                </motion.div>
+              </div>
+            </div>
+          </motion.section>
+
+          {/* Add all the new sections */}
+          <IndustryUseCases />
+          <TechStack />
+          <DevelopmentProcess />
+          <KeyDifferentiators />
+
+          {/* About Section */}
+          <motion.section 
+            className="py-32 px-8 border-t border-gray-800/50 relative"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            itemScope
+            itemType="https://schema.org/AboutPage"
+          >
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <motion.div 
+                  className="lg:col-span-5"
+                  initial={{ x: -50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  Dcodes<br />
-                  <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                    Mobile Studio
-                  </span>
-                </motion.h2>
+                  <Badge variant="outline" className="mb-8 border-cyan-400/50 text-cyan-400 bg-cyan-400/10">
+                    Since 2020
+                  </Badge>
+                  
+                  <motion.h2 
+                    className="text-5xl font-extralight mb-12 tracking-tight leading-tight"
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    viewport={{ once: true }}
+                    itemProp="headline"
+                  >
+                    Dcodes<br />
+                    <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                      Mobile Studio
+                    </span>
+                  </motion.h2>
+                  
+                  <div className="space-y-8">
+                    {["iOS & Android Expertise", "Cross-Platform Solutions", "App Store Success"].map((item, index) => (
+                      <motion.div 
+                        key={item}
+                        className="flex items-center gap-4"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" aria-hidden="true" />
+                        <span className="text-sm tracking-wide text-gray-400 font-medium">{item}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
                 
-                <div className="space-y-8">
-                  {["iOS & Android Expertise", "Cross-Platform Solutions", "App Store Success"].map((item, index) => (
-                    <motion.div 
-                      key={item}
-                      className="flex items-center gap-4"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
+                <motion.div 
+                  className="lg:col-span-7"
+                  initial={{ x: 50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.p 
+                    className="text-2xl font-normal text-gray-400 leading-relaxed mb-12"
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                    viewport={{ once: true }}
+                    itemProp="description"
+                  >
+                    Our development studio combines creativity with cutting-edge engineering. 
+                    We craft mobile solutions that not only work but win.
+                  </motion.p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {capabilities.map((capability, index) => (
+                      <motion.div
+                        key={index}
+                        className="group cursor-pointer"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
+                        viewport={{ once: true }}
+                        whileHover={{ y: -2 }}
+                      >
+                        <Card className="p-6 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 hover:border-cyan-500/30 transition-all duration-300">
+                          <div className="flex items-start gap-4">
+                            <Check className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" aria-hidden="true" />
+                            <span className="text-gray-400 group-hover:text-white transition-colors duration-300 font-normal">
+                              {capability}
+                            </span>
+                          </div>
+                        </Card>
+                      </motion.div>
+                    ))}
+
+                    {/* Highlight Box */}
+                    <motion.div
+                      className="group cursor-pointer w-full"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: capabilities.length * 0.1 + 0.5, duration: 0.6 }}
                       viewport={{ once: true }}
+                      whileHover={{ y: -2 }}
                     >
-                      <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
-                      <span className="text-sm tracking-wide text-gray-400 font-medium">{item}</span>
+                      <Card className="p-6 w-full bg-gradient-to-br from-cyan-900/30 via-cyan-800/10 to-transparent border border-cyan-500/40 hover:border-cyan-400/60 shadow-lg shadow-cyan-500/10 transition-all duration-300">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                          <Star className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" aria-hidden="true" />
+                          <div className="text-left">
+                            <h4 className="text-white font-medium mb-1">
+                              App Store Ready
+                            </h4>
+                            <p className="text-gray-400 text-sm leading-relaxed">
+                              Every app we build meets the latest Apple App Store & Google Play Store guidelines.
+                            </p>
+                          </div>
+                        </div>
+                      </Card>
                     </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                className="lg:col-span-7"
-                initial={{ x: 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <motion.p 
-                  className="text-2xl font-normal text-gray-400 leading-relaxed mb-12"
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  Our development studio combines creativity with cutting-edge engineering. 
-                  We craft mobile solutions that not only work but win.
-                </motion.p>
-                
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {capabilities.map((capability, index) => (
-        <motion.div
-          key={index}
-          className="group cursor-pointer"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -2 }}
-        >
-          <Card className="p-6 bg-gradient-to-br from-gray-900/30 to-gray-800/20 border-gray-800/30 hover:border-cyan-500/30 transition-all duration-300">
-            <div className="flex items-start gap-4">
-              <Check className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
-              <span className="text-gray-400 group-hover:text-white transition-colors duration-300 font-normal">
-                {capability}
-              </span>
+                  </div>
+                </motion.div>
+              </div>
             </div>
-          </Card>
-        </motion.div>
-      ))}
+          </motion.section>
 
-{/* Highlight Box */}
-<motion.div
-  className="group cursor-pointer w-full"
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ delay: capabilities.length * 0.1 + 0.5, duration: 0.6 }}
-  viewport={{ once: true }}
-  whileHover={{ y: -2 }}
->
-  <Card className="p-6 w-full bg-gradient-to-br from-cyan-900/30 via-cyan-800/10 to-transparent border border-cyan-500/40 hover:border-cyan-400/60 shadow-lg shadow-cyan-500/10 transition-all duration-300">
-    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-      <Star className="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
-      <div className="text-left">
-        <h4 className="text-white font-medium mb-1">
-          App Store Ready
-        </h4>
-        <p className="text-gray-400 text-sm leading-relaxed">
-          Every app we build meets the latest Apple App Store & Google Play Store guidelines.
-        </p>
-      </div>
-    </div>
-  </Card>
-</motion.div>
-
-    </div>
-
-              </motion.div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Android Showcase Section */}
-          {/* <motion.section
+          <motion.section
             className="py-32 px-8 relative"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -862,7 +993,80 @@ We help businesses turn bold app ideas into scalable digital products that users
             viewport={{ once: true }}
           >
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+              {/* Mobile Slider */}
+              <div className="lg:hidden">
+                <motion.div
+                  className="text-xs tracking-[0.2em] text-cyan-400 mb-8 uppercase font-semibold text-center"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  App Development
+                </motion.div>
+
+                <motion.h2
+                  className="text-4xl font-extralight mb-8 leading-tight tracking-tight text-center"
+                  initial={{ y: 40, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  Your App,<br />
+                  <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 bg-clip-text text-transparent">
+                    Our Expertise
+                  </span>
+                </motion.h2>
+
+                {/* Mobile Slider Container */}
+                <div className="relative w-full h-80 rounded-lg overflow-hidden mb-8">
+                  <Android
+                    className="h-full rounded-xl shadow-2xl overflow-hidden"
+                    videoSrc="https://videos.pexels.com/video-files/14993748/14993748-uhd_1296_2304_30fps.mp4"
+                    alt="Mobile app development demonstration video showing app features"
+                  />
+                </div>
+
+                {/* Mobile Content Slider */}
+                <motion.div
+                  className="space-y-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  {["High-Speed Performance", "Native-Like UI/UX", "App Store Launch Support", "Real-Time Data Integration", "Security-First Architecture"].map((item, index) => (
+                    <motion.div
+                      key={item}
+                      className="flex items-center gap-4"
+                      initial={{ opacity: 0, x: -25 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.15, duration: 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      <motion.div
+                        className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
+                        whileHover={{ scale: 1.4 }}
+                        aria-hidden="true"
+                      />
+                      <span className="text-gray-300 text-sm font-medium tracking-wide">{item}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                <motion.p
+                  className="text-gray-400 text-base font-normal leading-relaxed mt-8 text-center"
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  We design and develop apps that are user-focused, high-performing, and built for market success.
+                </motion.p>
+              </div>
+
+              {/* Desktop Layout */}
+              <div className="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 <motion.div
                   className="lg:col-span-5"
                   initial={{ x: -60, opacity: 0 }}
@@ -888,7 +1092,7 @@ We help businesses turn bold app ideas into scalable digital products that users
                   </motion.h2>
 
                   <div className="space-y-6">
-                    {[" High-Speed Performance", " Native-Like UI/UX", " App Store Launch Support"," Real-Time Data Integration"," Security-First Architecture"].map((item, index) => (
+                    {["High-Speed Performance", "Native-Like UI/UX", "App Store Launch Support", "Real-Time Data Integration", "Security-First Architecture"].map((item, index) => (
                       <motion.div
                         key={item}
                         className="flex items-center gap-4"
@@ -900,6 +1104,7 @@ We help businesses turn bold app ideas into scalable digital products that users
                         <motion.div
                           className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
                           whileHover={{ scale: 1.4 }}
+                          aria-hidden="true"
                         />
                         <span className="text-gray-300 text-sm font-medium tracking-wide">{item}</span>
                       </motion.div>
@@ -921,404 +1126,275 @@ We help businesses turn bold app ideas into scalable digital products that users
                     transition={{ delay: 0.3, duration: 0.8 }}
                     viewport={{ once: true }}
                   >
-  We design and develop apps that are user-focused, high-performing, and built for market success.
+                    We design and develop apps that are user-focused, high-performing, and built for market success.
                   </motion.p>
 
                   <div className="relative w-full flex h-96 md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
                     <Android
                       className="h-[60vh] rounded-xl shadow-2xl overflow-hidden"
                       videoSrc="https://videos.pexels.com/video-files/14993748/14993748-uhd_1296_2304_30fps.mp4"
+                      alt="Mobile app development platform demonstration showing cross-platform capabilities"
                     />
                   </div>
                 </motion.div>
               </div>
             </div>
-          </motion.section> */}
+          </motion.section>
 
+          {/* Testimonials Section */}
+          <TestimonialsSection />
 
-<motion.section
-  className="py-32 px-8 relative"
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 1 }}
-  viewport={{ once: true }}
->
-  <div className="max-w-6xl mx-auto">
-    {/* Mobile Slider */}
-    <div className="lg:hidden">
-      <motion.div
-        className="text-xs tracking-[0.2em] text-cyan-400 mb-8 uppercase font-semibold text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        App Development
-      </motion.div>
+          {/* Philosophy Section */}
+          <motion.section 
+            className="py-32 px-8 border-t border-gray-800/50"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            itemScope
+            itemType="https://schema.org/ItemList"
+          >
+            <div className="max-w-6xl mx-auto">
+              <motion.div 
+                className="text-center mb-24"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-5xl font-extralight mb-6 tracking-tight" itemProp="name">Built on These 4 Pillars</h2>
+                <motion.div 
+                  className="w-16 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "4rem" }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                  viewport={{ once: true }}
+                />
+              </motion.div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {philosophy.map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    className="text-center group cursor-pointer"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2, duration: 0.8 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -10 }}
+                    itemProp="itemListElement"
+                    itemScope
+                    itemType="https://schema.org/Thing"
+                  >
+                    <div className="mb-8">
+                      <motion.div 
+                        className="w-px h-16 bg-gradient-to-b from-cyan-400 to-blue-500 mx-auto group-hover:from-cyan-300 group-hover:to-blue-400 transition-colors duration-500"
+                        whileHover={{ scaleY: 1.2 }}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <motion.div 
+                      className="text-4xl mb-4"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      aria-hidden="true"
+                    >
+                      {item.icon}
+                    </motion.div>
+                    <h3 className="text-xl font-normal mb-4 group-hover:text-cyan-300 transition-colors duration-300" itemProp="name">
+                      {item.principle}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed font-normal group-hover:text-gray-300 transition-colors duration-300" itemProp="description">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
 
-      <motion.h2
-        className="text-4xl font-extralight mb-8 leading-tight tracking-tight text-center"
-        initial={{ y: 40, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        Your App,<br />
-        <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 bg-clip-text text-transparent">
-          Our Expertise
-        </span>
-      </motion.h2>
-
-      {/* Mobile Slider Container */}
-      <div className="relative w-full h-80 rounded-lg overflow-hidden mb-8">
-        <Android
-          className="h-full rounded-xl shadow-2xl overflow-hidden"
-          videoSrc="https://videos.pexels.com/video-files/14993748/14993748-uhd_1296_2304_30fps.mp4"
-        />
-      </div>
-
-      {/* Mobile Content Slider */}
-      <motion.div
-        className="space-y-6"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        {[" High-Speed Performance", " Native-Like UI/UX", " App Store Launch Support", " Real-Time Data Integration", " Security-First Architecture"].map((item, index) => (
-          <motion.div
-            key={item}
-            className="flex items-center gap-4"
-            initial={{ opacity: 0, x: -25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.15, duration: 0.6 }}
+          {/* CTA Section */}
+          <motion.section 
+            className="py-32 px-8 border-t border-gray-800/50"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <motion.div
-              className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-              whileHover={{ scale: 1.4 }}
-            />
-            <span className="text-gray-300 text-sm font-medium tracking-wide">{item}</span>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      <motion.p
-        className="text-gray-400 text-base font-normal leading-relaxed mt-8 text-center"
-        initial={{ y: 20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        We design and develop apps that are user-focused, high-performing, and built for market success.
-      </motion.p>
-    </div>
-
-    {/* Desktop Layout (unchanged) */}
-    <div className="hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-      <motion.div
-        className="lg:col-span-5"
-        initial={{ x: -60, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
-        <div className="text-xs tracking-[0.2em] text-cyan-400 mb-8 uppercase font-semibold">
-          App Development
-        </div>
-
-        <motion.h2
-          className="text-5xl md:text-6xl font-extralight mb-12 leading-tight tracking-tight"
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Your App,<br />
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 bg-clip-text text-transparent">
-            Our Expertise
-          </span>
-        </motion.h2>
-
-        <div className="space-y-6">
-          {[" High-Speed Performance", " Native-Like UI/UX", " App Store Launch Support", " Real-Time Data Integration", " Security-First Architecture"].map((item, index) => (
-            <motion.div
-              key={item}
-              className="flex items-center gap-4"
-              initial={{ opacity: 0, x: -25 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.15 + 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                whileHover={{ scale: 1.4 }}
-              />
-              <span className="text-gray-300 text-sm font-medium tracking-wide">{item}</span>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="lg:col-span-7 flex flex-col justify-center"
-        initial={{ x: 60, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
-        <motion.p
-          className="text-gray-400 text-lg md:text-xl font-normal leading-relaxed mb-12"
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          We design and develop apps that are user-focused, high-performing, and built for market success.
-        </motion.p>
-
-        <div className="relative w-full flex h-96 md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
-          <Android
-            className="h-[60vh] rounded-xl shadow-2xl overflow-hidden"
-            videoSrc="https://videos.pexels.com/video-files/14993748/14993748-uhd_1296_2304_30fps.mp4"
-          />
-        </div>
-      </motion.div>
-    </div>
-  </div>
-</motion.section>
-        {/* Testimonials Section */}
-        <TestimonialsSection />
-
-        {/* Philosophy Section */}
-        <motion.section 
-          className="py-32 px-8 border-t border-gray-800/50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-6xl mx-auto">
-            <motion.div 
-              className="text-center mb-24"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-extralight mb-6 tracking-tight">Built on These 4 Pillars</h2>
-              <motion.div 
-                className="w-16 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto"
-                initial={{ width: 0 }}
-                whileInView={{ width: "4rem" }}
-                transition={{ delay: 0.5, duration: 0.8 }}
+            <div className="max-w-4xl mx-auto text-center">
+              <motion.h2 
+                className="text-6xl md:text-7xl font-extralight mb-12 tracking-tighter"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-              />
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {philosophy.map((item, index) => (
-                <motion.div 
-                  key={index}
-                  className="text-center group cursor-pointer"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2, duration: 0.8 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                >
-                  <div className="mb-8">
-                    <motion.div 
-                      className="w-px h-16 bg-gradient-to-b from-cyan-400 to-blue-500 mx-auto group-hover:from-cyan-300 group-hover:to-blue-400 transition-colors duration-500"
-                      whileHover={{ scaleY: 1.2 }}
-                    />
-                  </div>
-                  <motion.div 
-                    className="text-4xl mb-4"
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    {item.icon}
-                  </motion.div>
-                  <h3 className="text-xl font-normal mb-4 group-hover:text-cyan-300 transition-colors duration-300">
-                    {item.principle}
-                  </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed font-normal group-hover:text-gray-300 transition-colors duration-300">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
-        {/* CTA Section */}
-        <motion.section 
-          className="py-32 px-8 border-t border-gray-800/50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h2 
-              className="text-6xl md:text-7xl font-extralight mb-12 tracking-tighter"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              Ready to <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Launch?</span>
-            </motion.h2>
-            <motion.p 
-              className="text-xl text-gray-300 mb-16 font-normal leading-relaxed max-w-2xl mx-auto"
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              From startup MVPs to enterprise platforms we turn your app vision into scalable success.
-            </motion.p>
-            
-            <motion.div 
-              className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12"
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <motion.button 
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-12 py-4 text-sm tracking-wide uppercase hover:from-cyan-400 hover:to-blue-500 transition-all duration-500 font-medium rounded-sm relative overflow-hidden"
-                whileHover={{ 
-                  scale: 1.05, 
-                  boxShadow: "0 20px 40px rgba(0,212,255,0.4)",
-                  y: -2
-                }}
-                whileTap={{ scale: 0.95 }}
               >
-                <Link href="/contact" className="relative z-10">CONNECT US</Link>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
-              </motion.button>
+                Ready to <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Launch?</span>
+              </motion.h2>
+              <motion.p 
+                className="text-xl text-gray-300 mb-16 font-normal leading-relaxed max-w-2xl mx-auto"
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                From startup MVPs to enterprise platforms we turn your app vision into scalable success.
+              </motion.p>
               
-              <motion.button 
-                className="border border-gray-700 hover:border-cyan-500 px-12 py-4 text-sm tracking-wide uppercase transition-all duration-300 font-medium rounded-sm relative overflow-hidden group"
-                whileHover={{ 
-                  scale: 1.05,
-                  borderColor: "#00D4FF",
-                  y: -2
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link href="/Product/chopada" className="relative z-10 group-hover:text-cyan-400 transition-colors duration-300">View App Examples</Link>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </motion.button>
-            </motion.div>
-            
-            <motion.div 
-              className="text-xs tracking-wide text-gray-500 uppercase font-medium"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-cyan-400">iOS & Android Specialists</span> • Free Consultation Available
-            </motion.div>
-          </div>
-        </motion.section>
-
-        {/* FAQ Section */}
-        <motion.section 
-          className="py-32 px-8 border-t border-gray-800/50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-4xl mx-auto">
-            <motion.div 
-              className="text-center mb-24"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl font-extralight mb-6 tracking-tight">Frequently Asked</h2>
               <motion.div 
-                className="w-16 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto"
-                initial={{ width: 0 }}
-                whileInView={{ width: "4rem" }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12"
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
                 viewport={{ once: true }}
-              />
-            </motion.div>
-            
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-gradient-to-r from-gray-900/30 to-gray-800/20 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
+              >
+                <motion.button 
+                  className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-12 py-4 text-sm tracking-wide uppercase hover:from-cyan-400 hover:to-blue-500 transition-all duration-500 font-medium rounded-sm relative overflow-hidden"
+                  whileHover={{ 
+                    scale: 1.05, 
+                    boxShadow: "0 20px 40px rgba(0,212,255,0.4)",
+                    y: -2
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Contact us for mobile app development services"
                 >
-                  <motion.button
-                    className="w-full text-left p-8 hover:bg-gray-900/50 transition-all duration-300 flex items-center justify-between group"
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                    whileHover={{ backgroundColor: "rgba(17, 24, 39, 0.5)" }}
-                  >
-                    <h3 className="text-lg font-normal pr-8 group-hover:text-cyan-300 transition-colors duration-300">
-                      {faq.question}
-                    </h3>
-                    <motion.span 
-                      className={`text-2xl font-extralight transition-all duration-300 ${
-                        openFaq === index ? 'text-cyan-400' : 'text-gray-500'
-                      }`}
-                      animate={{ 
-                        rotate: openFaq === index ? 45 : 0,
-                        scale: openFaq === index ? 1.1 : 1
-                      }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                      +
-                    </motion.span>
-                  </motion.button>
-                  
-                  <AnimatePresence>
-                    {openFaq === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
-                        <motion.div 
-                          className="px-8 pb-8 border-t border-gray-800/30"
-                          initial={{ y: -20 }}
-                          animate={{ y: 0 }}
-                          transition={{ delay: 0.1, duration: 0.3 }}
-                        >
-                          <p className="text-gray-300 leading-relaxed font-normal pt-6">
-                            {faq.answer}
-                          </p>
-                        </motion.div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
+                  <Link href="/contact" className="relative z-10">CONNECT US</Link>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6 }}
+                  />
+                </motion.button>
+                
+                <motion.button 
+                  className="border border-gray-700 hover:border-cyan-500 px-12 py-4 text-sm tracking-wide uppercase transition-all duration-300 font-medium rounded-sm relative overflow-hidden group"
+                  whileHover={{ 
+                    scale: 1.05,
+                    borderColor: "#00D4FF",
+                    y: -2
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="View mobile app development portfolio and examples"
+                >
+                  <Link href="/Product/chopada" className="relative z-10 group-hover:text-cyan-400 transition-colors duration-300">View App Examples</Link>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </motion.button>
+              </motion.div>
+              
+              <motion.div 
+                className="text-xs tracking-wide text-gray-500 uppercase font-medium"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.7, duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <span className="text-cyan-400">iOS & Android Specialists</span> • Free Consultation Available
+              </motion.div>
             </div>
-          </div>
-        </motion.section>
+          </motion.section>
+
+          {/* FAQ Section */}
+          <motion.section 
+            className="py-32 px-8 border-t border-gray-800/50"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            itemScope
+            itemType="https://schema.org/FAQPage"
+          >
+            <div className="max-w-4xl mx-auto">
+              <motion.div 
+                className="text-center mb-24"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-5xl font-extralight mb-6 tracking-tight">Frequently Asked</h2>
+                <motion.div 
+                  className="w-16 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "4rem" }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                  viewport={{ once: true }}
+                />
+              </motion.div>
+              
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <motion.div 
+                    key={index}
+                    className="bg-gradient-to-r from-gray-900/30 to-gray-800/20 backdrop-blur-sm border border-gray-800/50 rounded-lg overflow-hidden"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.6 }}
+                    viewport={{ once: true }}
+                    itemScope
+                    itemType="https://schema.org/Question"
+                  >
+                    <motion.button
+                      className="w-full text-left p-8 hover:bg-gray-900/50 transition-all duration-300 flex items-center justify-between group"
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      whileHover={{ backgroundColor: "rgba(17, 24, 39, 0.5)" }}
+                      aria-expanded={openFaq === index}
+                      aria-controls={`faq-answer-${index}`}
+                    >
+                      <h3 className="text-lg font-normal pr-8 group-hover:text-cyan-300 transition-colors duration-300" itemProp="name">
+                        {faq.question}
+                      </h3>
+                      <motion.span 
+                        className={`text-2xl font-extralight transition-all duration-300 ${
+                          openFaq === index ? 'text-cyan-400' : 'text-gray-500'
+                        }`}
+                        animate={{ 
+                          rotate: openFaq === index ? 45 : 0,
+                          scale: openFaq === index ? 1.1 : 1
+                        }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        aria-hidden="true"
+                      >
+                        +
+                      </motion.span>
+                    </motion.button>
+                    
+                    <AnimatePresence>
+                      {openFaq === index && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                          id={`faq-answer-${index}`}
+                          itemScope
+                          itemType="https://schema.org/Answer"
+                          itemProp="acceptedAnswer"
+                        >
+                          <motion.div 
+                            className="px-8 pb-8 border-t border-gray-800/30"
+                            initial={{ y: -20 }}
+                            animate={{ y: 0 }}
+                            transition={{ delay: 0.1, duration: 0.3 }}
+                            itemProp="text"
+                          >
+                            <p className="text-gray-300 leading-relaxed font-normal pt-6">
+                              {faq.answer}
+                            </p>
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,8 +1,9 @@
-
 "use client";
 import { useState } from 'react';
 import ColorBends from '@/components/ReactBit/ColorBends';
 import FeatureCard from './FeatureCard';
+import Head from 'next/head';
+
 // feature data
 const featuresData = [
     {
@@ -51,7 +52,8 @@ const featuresData = [
         description: "Seamless integration with existing EHR systems for unified patient data management"
     }
 ];
-// comparision data
+
+// comparison data
 const comparisonData = [
     { feature: 'Implementation Time', traditional: '3-6 Months', ourSolution: '2-4 Weeks' },
     { feature: 'Training Required', traditional: 'Extensive (40+ hours)', ourSolution: 'Minimal (10 hours)' },
@@ -62,9 +64,75 @@ const comparisonData = [
     { feature: 'Data Security', traditional: 'Basic, Compliance Risks', ourSolution: 'Advanced, HIPAA/GDPR Ready' },
     { feature: 'Mobile Access', traditional: 'Limited or None', ourSolution: 'Full Mobile App Suite' },
 ];
+
 export default function Hospital() {
     return (
         <>
+            {/* SEO Meta Tags and Structured Data */}
+            <Head>
+                <title>Hospital ERP Solutions | Healthcare Management System | Dcodes Technologies</title>
+                <meta name="description" content="Comprehensive Hospital ERP solution for patient management, appointment scheduling, pharmacy inventory, billing, and EHR integration. Transform healthcare management." />
+                <meta name="keywords" content="hospital ERP, healthcare management system, patient management, EHR integration, medical software, hospital management software, pharmacy inventory, appointment scheduling, HIPAA compliant" />
+                
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="Hospital ERP Solutions | Healthcare Management System | Dcodes" />
+                <meta property="og:description" content="Modern platform for managing patient records, medical operations, and healthcare services with comprehensive Hospital ERP solution." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://dcodes.com/hospital-erp" />
+                <meta property="og:image" content="https://dcodes.com/og-image-hospital-erp.jpg" />
+                <meta property="og:site_name" content="Dcodes Technologies" />
+                
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Hospital ERP Solutions | Healthcare Management" />
+                <meta name="twitter:description" content="Comprehensive Hospital ERP solution for modern healthcare providers." />
+                <meta name="twitter:image" content="https://dcodes.com/twitter-card-hospital.jpg" />
+                
+                {/* Canonical URL */}
+                <link rel="canonical" href="https://dcodes.com/hospital-erp" />
+                
+                {/* Structured Data for Hospital ERP Service */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Hospital ERP Solutions",
+                        "description": "Comprehensive Hospital Enterprise Resource Planning system for healthcare providers including patient management, appointment scheduling, pharmacy inventory, and EHR integration.",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Dcodes Technologies",
+                            "url": "https://dcodes.com",
+                            "logo": "https://dcodes.com/logo.png",
+                            "sameAs": [
+                                "https://linkedin.com/company/dcodes",
+                                "https://twitter.com/dcodes",
+                                "https://github.com/dcodes"
+                            ]
+                        },
+                        "serviceType": ["Hospital Management Software", "Healthcare ERP", "Medical Software"],
+                        "areaServed": {
+                            "@type": "Country",
+                            "name": "India"
+                        },
+                        "offers": {
+                            "@type": "Offer",
+                            "description": "Comprehensive Hospital ERP solution"
+                        }
+                    })}
+                </script>
+                
+                {/* Additional Meta Tags */}
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+                <meta name="author" content="Dcodes Technologies" />
+                <meta name="theme-color" content="#000000" />
+                
+                {/* Language and Region */}
+                <meta httpEquiv="content-language" content="en" />
+                <meta name="geo.region" content="IN-GJ" />
+                <meta name="geo.placename" content="Gujarat" />
+            </Head>
+
             <div className="relative h-screen">
                 <ColorBends
                     colors={["#6366F1", "#8B5CF6", "#06B6D4"]}
@@ -79,92 +147,52 @@ export default function Hospital() {
                     transparent
                 />
             </div>
-            {/* hero text and button */}
-            {/* <div className="relative z-10 mt-30  sm:mt-32 lg:mt-34 px-4 sm:px-6 lg:px-8">
-                <div className="text-center">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-white mb-4">
-                        Delivering Innovative IT Solutions That Drive Business Growth
-                    </h1>
-                    <p className="text-base sm:text-lg text-gray-500 p-3 max-w-4xl mx-auto">
-                        Explore Our Portfolio of Successful Digital Transformations
-                        From enterprise software to cloud solutions every project reflects our commitment to excellence
-                    </p>
-                    <div className="flex flex-col gap-4 items-center sm:flex-row sm:justify-center sm:gap-4">
-                        <button
-                            className='p-3 cursor-pointer w-45 md:w-58 lg:w-70 bg-gradient-to-r from-purple-800 to-blue-700 text-white font-bold rounded-full'
-                            onClick={() => {
-                                const link = document.createElement('a');
-                                link.href = '/Dcodes Technologies Corporate Profile.pdf';
-                                link.download = 'portfolio.pdf';
-                                link.click();
-                            }}>
-                            Download Portfolio
-                        </button>
-                        <button
-                            className='p-3 cursor-pointer w-45 md:w-58 lg:w-70 bg-transparent text-white font-bold rounded-full border-2 border-gray-400 hover:border-white transition-all duration-300'
-                            onClick={() => window.open('/Dcodes Technologies Corporate Profile.pdf', '_blank')}>
-                            View Portfolio
-                        </button>
-                    </div>
-                </div>
-            </div> */}
-            {/* hero text and button ends */}
+
+            {/* Hero Section */}
             <div className="absolute top-20 left-0 w-full h-full flex items-center justify-center z-10 px-4 sm:px-6 lg:px-8">
-                <div className="text-center w-full max-w-6xl">
-                    <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl font-thin text-white ">
+                <div className="text-center w-full max-w-6xl" itemScope itemType="https://schema.org/WebPage">
+                    <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl font-thin text-white" itemProp="headline">
                         FOR HEALTHCARE PROVIDERS
                     </h1>
                     <h2 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl font-thin text-white mb-6">
                         TRANSFORM YOUR HOSPITAL MANAGEMENT
                     </h2>
-                    <p className="text-lg font-sans font-light tracking-wide sm:text-xl text-gray-400 p-4 max-w-3xl mx-auto mb-8 leading-relaxed">
+                    <p className="text-lg font-sans font-light tracking-wide sm:text-xl text-gray-400 p-4 max-w-3xl mx-auto mb-8 leading-relaxed" itemProp="description">
                         Modern platform for managing patient records, medical operations, and healthcare services
                     </p>
-                    {/* <div className="flex flex-col gap-3 items-center sm:flex-row sm:justify-center sm:gap-4">
-                        <button
-                            className='px-6 py-2 cursor-pointer bg-gradient-to-r from-purple-600 to-blue-500 text-white font-bold rounded-full flex items-center justify-center gap-2 group hover:shadow-lg transition-all duration-300 text-base sm:text-lg whitespace-nowrap min-w-[140px]'
-                            onClick={() => {
-                                const link = document.createElement('a');
-                                link.href = '/Hospital-ERP-Demo.pdf';
-                                link.download = 'hospital-erp-demo.pdf';
-                                link.click();
-                            }}>
-                            Start Free Trial
-                            <span className="group-hover:rotate-45 px-2 py-1 backdrop-blur-md bg-white/10 rounded-full transition-all duration-300">→</span>
-                        </button>
-                        <button
-                            className='px-12 py-2 cursor-pointer bg-transparent  font-thin rounded-full border border-gray-400  hover:bg-gray-800  hover:bg-opacity-10 transition-all duration-200 text-base sm:text-lg whitespace-nowrap min-w-[140px]'>
-                            Watch Demo
-                        </button>
-                    </div> */}
                 </div>
             </div>
-            {/* features section */}
-            <div className="py-5 mt-10 px-3 bg-black">
+
+            {/* Features Section */}
+            <div className="py-5 mt-10 px-3 bg-black" itemScope itemType="https://schema.org/ItemList">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Section header */}
-                    <div className="text-center ">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                    <div className="text-center">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4" itemProp="name">
                             Comprehensive Healthcare Modules
                         </h2>
-                        <p className="text-lg text-gray-400 my-5 max-w-3xl mx-auto">
+                        <p className="text-lg text-gray-400 my-5 max-w-3xl mx-auto" itemProp="description">
                             End-to-end solutions covering all hospital management needs
                         </p>
                     </div>
                 </div>
-                <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {featuresData.map((feature, index) => (
-                        <FeatureCard key={index} {...feature} />
+                        <div key={index} itemProp="itemListElement" itemScope itemType="https://schema.org/Thing">
+                            <FeatureCard {...feature} />
+                        </div>
                     ))}
                 </div>
             </div>
-            <div className="py-20 bg-gray-900">
+
+            {/* Comparison Section */}
+            <div className="py-20 bg-gray-900" itemScope itemType="https://schema.org/Comparison">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4" itemProp="name">
                             Why Choose Our Hospital ERP?
                         </h2>
-                        <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+                        <p className="text-lg text-gray-400 max-w-3xl mx-auto" itemProp="description">
                             Compare traditional systems with our modern healthcare solution
                         </p>
                     </div>
@@ -173,16 +201,16 @@ export default function Hospital() {
                             <thead>
                                 <tr className="bg-gray-900">
                                     <th className="py-4 px-6 text-left text-white font-bold text-lg">Feature / Category</th>
-                                    <th className="py-4 px-6 text-left text-red-400 font-bold">Traditional System :x:</th>
-                                    <th className="py-4 px-6 text-left text-green-400 font-bold">Our ERP Solution :white_tick:</th>
+                                    <th className="py-4 px-6 text-left text-red-400 font-bold">Traditional System</th>
+                                    <th className="py-4 px-6 text-left text-green-400 font-bold">Our ERP Solution</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {comparisonData.map((item, index) => (
                                     <tr key={index} className={index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-700 border-gray-500 border'}>
-                                        <td className="py-4 px-6 text-white font-medium">{item.feature}</td>
-                                        <td className="py-4 px-6 text-gray-400">{item.traditional}</td>
-                                        <td className="py-4 px-6 text-gray-300">{item.ourSolution}</td>
+                                        <td className="py-4 px-6 text-white font-medium" itemProp="name">{item.feature}</td>
+                                        <td className="py-4 px-6 text-gray-400" itemProp="disadvantages">{item.traditional}</td>
+                                        <td className="py-4 px-6 text-gray-300" itemProp="advantages">{item.ourSolution}</td>
                                     </tr>
                                 ))}
                             </tbody>

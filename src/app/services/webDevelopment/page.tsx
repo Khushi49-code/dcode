@@ -407,10 +407,8 @@
 
 
 
-
 "use client";
 import { Zap, Rocket, Accessibility, Sparkles } from "lucide-react";
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
@@ -419,7 +417,6 @@ import {
   Globe, 
   ShoppingCart, 
   Layers, 
-
   Check,
   Monitor,
   Smartphone,
@@ -444,6 +441,7 @@ import {
 import DotGrid from '@/components/ReactBit/DotGrid';
 import ProjectsShowcase from "./ProjectsShowcase";
 import Link from "next/link";
+import Head from 'next/head';
 
 export default function DcodesWebsiteDev() {
   const [activeService, setActiveService] = useState<number | null>(null);
@@ -475,7 +473,7 @@ export default function DcodesWebsiteDev() {
     {
       id: 4,
       title: "Digital Maintenance",
-      description: "Continuous optimization, monitoring, and upgrades  keeping your platforms future-ready.",
+      description: "Continuous optimization, monitoring, and upgrades keeping your platforms future-ready.",
       number: "04",
       icon: Zap
     }
@@ -490,13 +488,12 @@ export default function DcodesWebsiteDev() {
     { text: "Continuous Evolution Support", icon: TrendingUp }
   ];
 
-const philosophy = [
-  { principle: "Minimalism", description: "Every element serves a clear purpose.", icon: <Zap className="w-10 h-10 text-cyan-400" /> },
-  { principle: "Performance", description: "Speed and reliability are at the core.", icon: <Rocket className="w-10 h-10 text-cyan-400" /> },
-  { principle: "Accessibility", description: "Creative designs that welcome every user.", icon: <Accessibility className="w-10 h-10 text-cyan-400" /> },
-  { principle: "Innovation", description: "Tomorrow's technology, built today.", icon: <Sparkles className="w-10 h-10 text-cyan-400" /> }
-];
-
+  const philosophy = [
+    { principle: "Minimalism", description: "Every element serves a clear purpose.", icon: <Zap className="w-10 h-10 text-cyan-400" /> },
+    { principle: "Performance", description: "Speed and reliability are at the core.", icon: <Rocket className="w-10 h-10 text-cyan-400" /> },
+    { principle: "Accessibility", description: "Creative designs that welcome every user.", icon: <Accessibility className="w-10 h-10 text-cyan-400" /> },
+    { principle: "Innovation", description: "Tomorrow's technology, built today.", icon: <Sparkles className="w-10 h-10 text-cyan-400" /> }
+  ];
 
   const techStack = [
     {
@@ -582,757 +579,861 @@ const philosophy = [
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen font-normal antialiased relative overflow-hidden">
-      {/* DotGrid Background with lower z-index */}
-      <div className="fixed inset-0 -z-10" style={{ zIndex: 0 }}>
-        <DotGrid
-          dotSize={2}
-          gap={20}
-          baseColor="#1E40AF"
-          activeColor="#06B6D4"
-          proximity={200}
-          shockRadius={250}
-          shockStrength={5}
-          resistance={500}
-          returnDuration={1.2}
-        />
-      </div>
-
-      {/* Content with higher z-index */}
-      <div className="relative z-10">
-        {/* Hero Section */}
-<section className="min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8    md:py-12 lg:py-20">
-  <div className="max-w-7xl mx-auto w-full text-center">
-    <motion.div 
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="space-y-6 md:space-y-8 lg:space-y-12"
-    >
-      {/* Main Heading */}
-      <div className="space-y-4 md:space-y-6">
-        <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-tight md:leading-tighter"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.8 }}
-        >
-          Website
-          <br />
-          <span className="font-normal bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent bg-size-200 animate-gradient">
-            Development
-          </span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.div 
-          className="text-xs sm:text-sm tracking-[0.3em] text-cyan-400 uppercase font-medium"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          Precision-Engineered Digital Experiences
-        </motion.div>
-      </div>
-
-      {/* Description Text */}
-      <motion.div 
-        className="max-w-4xl mx-auto px-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-      >
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-relaxed md:leading-relaxed text-gray-300">
-          Crafting intelligent, scalable,{" "}
-          <span className="font-normal bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-            and high-performing digital
-          </span>{" "}
-          experiences engineered for the modern world.
-        </p>
-      </motion.div>
-
-      {/* CTA Buttons */}
-      <motion.div 
-        className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 pt-4 md:pt-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-      >
-        <Link 
-          href="/connect" 
-          className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 text-sm md:text-base tracking-wider uppercase hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 rounded-xl flex items-center justify-center gap-2 min-w-[200px] sm:min-w-[220px] transform hover:-translate-y-1"
-        >
-          Discuss Your Project
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-        </Link>
-
-        <Link 
-          href="/Portfolio" 
-          className="group text-sm md:text-base tracking-wider uppercase text-gray-400 hover:text-white transition-all duration-300 px-6 sm:px-8 md:px-10 py-3 md:py-4 border border-gray-600 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-500/20 rounded-xl flex items-center justify-center min-w-[200px] sm:min-w-[220px] transform hover:-translate-y-1"
-        >
-          View Portfolio
-        </Link>
-      </motion.div>
-
-      {/* Trust Badge */}
-      <motion.div 
-        className="pt-8  lg:pt-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-      >
-        <div className="text-xs sm:text-sm text-gray-500 font-medium uppercase tracking-widest">
-          Trusted by Startups, Enterprises & Global Innovators
-        </div>
+    <>
+      {/* SEO Meta Tags and Structured Data */}
+      <Head>
+        <title>Professional Web Development Services | Dcodes Technologies</title>
+        <meta name="description" content="Expert web development services including digital architecture, e-commerce solutions, web applications, and ongoing maintenance. Build scalable, high-performing websites with Dcodes." />
+        <meta name="keywords" content="web development, website development, e-commerce solutions, web applications, digital architecture, responsive websites, web design, frontend development, backend development, React, Next.js, Laravel, Python" />
         
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Professional Web Development Services | Dcodes Technologies" />
+        <meta property="og:description" content="Crafting intelligent, scalable, and high-performing digital experiences engineered for the modern world. Expert web development solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dcodes.com/web-development" />
+        <meta property="og:image" content="https://dcodes.com/og-image-web-development.jpg" />
+        <meta property="og:site_name" content="Dcodes Technologies" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Professional Web Development Services | Dcodes" />
+        <meta name="twitter:description" content="Expert web development solutions for businesses worldwide. Scalable, secure, and high-performing websites." />
+        <meta name="twitter:image" content="https://dcodes.com/twitter-card-web-development.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://dcodes.com/web-development" />
+        
+        {/* Structured Data for Web Development Service */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Website Development",
+            "description": "Professional web development services including digital architecture, e-commerce solutions, and web applications.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Dcodes Technologies",
+              "url": "https://dcodes.com",
+              "logo": "https://dcodes.com/logo.png",
+              "sameAs": [
+                "https://linkedin.com/company/dcodes",
+                "https://twitter.com/dcodes",
+                "https://github.com/dcodes"
+              ]
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "India"
+            },
+            "serviceType": ["Web Development", "E-commerce Development", "Web Application Development"],
+            "offers": {
+              "@type": "Offer",
+              "description": "Comprehensive web development solutions"
+            }
+          })}
+        </script>
+        
+        {/* Structured Data for FAQPage */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
+        
+        {/* Additional Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="Dcodes Technologies" />
+        <meta name="theme-color" content="#000000" />
+        
+        {/* Language and Region */}
+        <meta httpEquiv="content-language" content="en" />
+        <meta name="geo.region" content="IN-GJ" />
+        <meta name="geo.placename" content="Gujarat" />
+      </Head>
 
-      </motion.div>
-    </motion.div>
-  </div>
-</section>
+      <div className="bg-black text-white min-h-screen font-normal antialiased relative overflow-hidden">
+        {/* DotGrid Background with lower z-index */}
+        <div className="fixed inset-0 -z-10" style={{ zIndex: 0 }}>
+          <DotGrid
+            dotSize={2}
+            gap={20}
+            baseColor="#1E40AF"
+            activeColor="#06B6D4"
+            proximity={200}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={500}
+            returnDuration={1.2}
+          />
+        </div>
 
-        {/* Trusted Brands Section */}
-        <section className=" px-6 border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-              {trustedBrands.map((brand, index) => (
-                <div key={index} className="text-white hover:text-cyan-400 transition-colors text-sm tracking-wider uppercase">
-                  {brand}
+        {/* Content with higher z-index */}
+        <div className="relative z-10">
+          {/* Hero Section */}
+          <section className="min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 md:py-12 lg:py-20">
+            <div className="max-w-7xl mx-auto w-full text-center">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="space-y-6 md:space-y-8 lg:space-y-12"
+              >
+                {/* Main Heading */}
+                <div className="space-y-4 md:space-y-6">
+                  <motion.h1 
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-tight md:leading-tighter"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1, duration: 0.8 }}
+                    itemProp="headline"
+                  >
+                    Website
+                    <br />
+                    <span className="font-normal bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent bg-size-200 animate-gradient">
+                      Development
+                    </span>
+                  </motion.h1>
+
+                  {/* Subtitle */}
+                  <motion.div 
+                    className="text-xs sm:text-sm tracking-[0.3em] text-cyan-400 uppercase font-medium"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                  >
+                    Precision-Engineered Digital Experiences
+                  </motion.div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Services Section */}
-        <section className="py-32 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="mb-20 text-center">
+                {/* Description Text */}
+                <motion.div 
+                  className="max-w-4xl mx-auto px-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
+                >
+                  <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-relaxed md:leading-relaxed text-gray-300" itemProp="description">
+                    Crafting intelligent, scalable,{" "}
+                    <span className="font-normal bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                      and high-performing digital
+                    </span>{" "}
+                    experiences engineered for the modern world.
+                  </p>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div 
+                  className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 pt-4 md:pt-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                >
+                  <Link 
+                    href="/connect" 
+                    className="group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 sm:px-8 md:px-10 py-3 md:py-4 text-sm md:text-base tracking-wider uppercase hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 rounded-xl flex items-center justify-center gap-2 min-w-[200px] sm:min-w-[220px] transform hover:-translate-y-1"
+                    aria-label="Discuss your web development project with Dcodes"
+                  >
+                    Discuss Your Project
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true" />
+                  </Link>
+
+                  <Link 
+                    href="/Portfolio" 
+                    className="group text-sm md:text-base tracking-wider uppercase text-gray-400 hover:text-white transition-all duration-300 px-6 sm:px-8 md:px-10 py-3 md:py-4 border border-gray-600 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-500/20 rounded-xl flex items-center justify-center min-w-[200px] sm:min-w-[220px] transform hover:-translate-y-1"
+                    aria-label="View our web development portfolio"
+                  >
+                    View Portfolio
+                  </Link>
+                </motion.div>
+
+                {/* Trust Badge */}
+                <motion.div 
+                  className="pt-8 lg:pt-16"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 0.8 }}
+                >
+                  <div className="text-xs sm:text-sm text-gray-500 font-medium uppercase tracking-widest">
+                    Trusted by Startups, Enterprises & Global Innovators
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Trusted Brands Section */}
+          <section className="px-6 border-t border-gray-800/50">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+                {trustedBrands.map((brand, index) => (
+                  <div key={index} className="text-white hover:text-cyan-400 transition-colors text-sm tracking-wider uppercase" itemProp="industry">
+                    {brand}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Services Section */}
+          <section className="py-32 px-6 md:px-10" itemScope itemType="https://schema.org/ItemList">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-20 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Our Expertise</div>
+                  <h2 className="text-4xl md:text-6xl font-extralight tracking-tight text-white mb-4" itemProp="name">
+                    Our Expertise in <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Web Engineering</span>
+                  </h2>
+                  <div className="w-20 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full" />
+                </motion.div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={service.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    onMouseEnter={() => setActiveService(service.id)}
+                    onMouseLeave={() => setActiveService(null)}
+                    className="group"
+                    itemProp="itemListElement"
+                    itemScope
+                    itemType="https://schema.org/Service"
+                  >
+                    <Card className="relative h-full overflow-hidden rounded-2xl border border-gray-800/50 bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:shadow-cyan-500/20 hover:border-cyan-500/50 hover:scale-[1.02]">
+                      <CardHeader className="p-8">
+                        <div className="flex items-start justify-between mb-6">
+                          <span className="text-7xl font-extralight text-gray-800 group-hover:text-cyan-400/40 transition-colors duration-500" aria-hidden="true">
+                            {service.number}
+                          </span>
+                          <div className="p-4 rounded-xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 transition-all duration-500 border border-cyan-500/20">
+                            <service.icon className="w-7 h-7 text-cyan-400" aria-hidden="true" />
+                          </div>
+                        </div>
+
+                        <CardTitle className="text-2xl font-normal mb-4 text-gray-100 group-hover:text-white transition-colors" itemProp="name">
+                          {service.title}
+                        </CardTitle>
+                      </CardHeader>
+
+                      <CardContent className="px-8 pb-10">
+                        <CardDescription className="text-gray-400 leading-relaxed text-base group-hover:text-gray-300 transition-colors" itemProp="description">
+                          {service.description}
+                        </CardDescription>
+
+                        <AnimatePresence>
+                          {activeService === service.id && (
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ width: 60 }}
+                              exit={{ width: 0 }}
+                              className="mt-8 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
+                              aria-hidden="true"
+                            />
+                          )}
+                        </AnimatePresence>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* About Section */}
+          <section className="py-32 px-6 md:px-8 border-t border-gray-800/50" itemScope itemType="https://schema.org/AboutPage">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Badge variant="outline" className="mb-6 border-cyan-400/50 text-cyan-400 bg-cyan-400/10 px-4 py-1">
+                    Since 2019
+                  </Badge>
+                  
+                  <h2 className="text-5xl md:text-6xl font-extralight mb-6 tracking-tight leading-tight" itemProp="headline">
+                    Dcodes<br />
+                    <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                      Technologies
+                    </span>
+                  </h2>
+                  
+                  <p className="text-lg text-gray-300 leading-relaxed mb-8" itemProp="description">
+                    We are a global technology company engineering digital solutions that elevate brands and accelerate transformation.
+                  </p>
+
+                  <p className="text-base text-gray-400 leading-relaxed mb-10">
+                    Our expertise spans enterprise systems, SaaS products, and high-performance web solutions designed for innovation-driven organizations.
+                  </p>
+
+                  <div className="space-y-4">
+                    {["Continuous Support", "Quality Assurance", "Modern Technology Stack"].map((item) => (
+                      <div key={item} className="flex items-center gap-3 group cursor-pointer">
+                        <div className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform" aria-hidden="true" />
+                        <span className="text-sm text-gray-300 group-hover:text-white transition-colors">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" itemScope itemType="https://schema.org/ItemList">
+                    {capabilities.map((capability, index) => (
+                      <Card key={index} className="p-6 bg-gray-900/40 backdrop-blur-xl border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 group" itemProp="itemListElement" itemScope itemType="https://schema.org/Thing">
+                        <div className="flex items-start gap-4">
+                          <div className="p-2 rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
+                            <capability.icon className="w-5 h-5 text-cyan-400" aria-hidden="true" />
+                          </div>
+                          <span className="text-sm text-gray-300 group-hover:text-white transition-colors leading-relaxed" itemProp="name">
+                            {capability.text}
+                          </span>
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* Showcase Section */}
+          <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="text-xs tracking-[0.3em] text-cyan-400 mb-6 uppercase">
+                    Digital Perfection
+                  </div>
+
+                  <h2 className="text-5xl md:text-6xl font-extralight mb-8 tracking-tight leading-tight">
+                    Digital Perfection,
+                    <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                      Crafted with Precision
+                    </span>
+                  </h2>
+
+                  <p className="text-gray-300 text-lg leading-relaxed mb-10">
+                    Every Dcodes project reflects our passion for design excellence and engineering precision delivering speed, security, and seamless performance.
+                  </p>
+
+                  <div className="space-y-5">
+                    {["Responsive Design – Fluid, adaptive interfaces for every screen and device.", 
+                      "Fast Loading – Engineered for speed and real-time performance.", 
+                      "SEO Optimization – Structurally optimized for visibility and growth."].map((item) => (
+                      <div key={item} className="flex items-start gap-4 group cursor-pointer">
+                        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 mt-1.5 group-hover:scale-125 transition-transform" aria-hidden="true" />
+                        <span className="text-gray-300 text-base group-hover:text-white transition-colors">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="grid grid-cols-3 gap-6">
+                    {showcaseFeatures.map((item, index) => (
+                      <motion.div 
+                        key={item.title} 
+                        className="text-center group"
+                        whileHover={{ y: -10 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="bg-gradient-to-br from-gray-900/60 to-gray-950/60 backdrop-blur-xl border border-gray-800/50 rounded-2xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20">
+                          <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform border border-cyan-500/30">
+                            <item.icon className="w-7 h-7 text-cyan-400" aria-hidden="true" />
+                          </div>
+                          <h3 className="text-sm font-normal mb-2 text-white">{item.title}</h3>
+                          <p className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">{item.desc}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* Technology Stack Section */}
+          <section className="py-32 px-6 md:px-8 border-t border-gray-800/50" itemScope itemType="https://schema.org/ItemList">
+            <div className="max-w-7xl mx-auto">
+              <motion.div 
+                className="text-center mb-20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Powered By</div>
+                <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight" itemProp="name">
+                  Technologies We <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Work With</span>
+                </h2>
+                <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6" />
+              </motion.div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                {techStack.map((tech, index) => (
+                  <motion.div
+                    key={tech.category}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    onMouseEnter={() => setHoveredTech(index)}
+                    onMouseLeave={() => setHoveredTech(null)}
+                    className="group"
+                    itemProp="itemListElement"
+                    itemScope
+                    itemType="https://schema.org/Technology"
+                  >
+                    <Card className="h-full bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 p-6 rounded-xl">
+                      <div className={`w-12 h-12 mx-auto mb-4 bg-gradient-to-br ${tech.color} rounded-lg flex items-center justify-center transition-all`}>
+                        <tech.icon className="w-6 h-6 text-white" aria-hidden="true" />
+                      </div>
+                      <h3 className="text-center text-lg font-normal mb-4 text-white" itemProp="name">{tech.category}</h3>
+                      <div className="space-y-2">
+                        {tech.technologies.map((t) => (
+                          <div key={t} className="text-center text-sm text-gray-400 group-hover:text-gray-300 transition-colors" itemProp="technology">
+                            {t}
+                          </div>
+                        ))}
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Workflow Section */}
+          <section className="py-32 px-6 md:px-8 border-t border-gray-800/50" itemScope itemType="https://schema.org/ItemList">
+            <div className="max-w-7xl mx-auto">
+              <motion.div 
+                className="text-center mb-20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Our Process</div>
+                <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight" itemProp="name">
+                  Project <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Lifecycle</span>
+                </h2>
+                <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6" />
+              </motion.div>
+
+              <div className="relative">
+                <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20" aria-hidden="true" />
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 relative">
+                  {workflow.map((item, index) => (
+                    <motion.div
+                      key={item.step}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="text-center group"
+                      itemProp="itemListElement"
+                      itemScope
+                      itemType="https://schema.org/HowToStep"
+                    >
+                      <div className="relative mb-6">
+                        <div className="w-20 h-20 mx-auto bg-gradient-to-br from-gray-900 to-gray-950 border-2 border-gray-800 group-hover:border-cyan-500 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative z-10">
+                          <item.icon className="w-8 h-8 text-cyan-400" aria-hidden="true" />
+                        </div>
+                      </div>
+                      <div className="text-gray-500 text-xs mb-2 font-medium">STEP {index + 1}</div>
+                      <h3 className="text-base font-normal text-white group-hover:text-cyan-400 transition-colors" itemProp="name">
+                        {item.step}
+                      </h3>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Industries Section */}
+          <section className="py-32 px-6 md:px-8 border-t border-gray-800/50" itemScope itemType="https://schema.org/ItemList">
+            <div className="max-w-7xl mx-auto">
+              <motion.div 
+                className="text-center mb-20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Versatile Solutions</div>
+                <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight" itemProp="name">
+                  Industries We <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Serve</span>
+                </h2>
+                <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6" />
+              </motion.div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                {industries.map((industry, index) => (
+                  <motion.div
+                    key={industry.name}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    whileHover={{ scale: 1.05 }}
+                    className="group cursor-pointer"
+                    itemProp="itemListElement"
+                    itemScope
+                    itemType="https://schema.org/Industry"
+                  >
+                    <Card className="h-full bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 p-8 rounded-xl text-center">
+                      <div className="w-14 h-14 mx-auto mb-4 bg-cyan-500/10 group-hover:bg-cyan-500/20 rounded-lg flex items-center justify-center transition-all">
+                        <industry.icon className="w-7 h-7 text-cyan-400" aria-hidden="true" />
+                      </div>
+                      <h3 className="text-sm font-normal text-gray-300 group-hover:text-white transition-colors" itemProp="name">
+                        {industry.name}
+                      </h3>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Security Section */}
+          <section className="py-0 px-6 md:px-8 border-t border-gray-800/50">
+            <div className="max-w-5xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Our Expertise</div>
-                <h2 className="text-4xl md:text-6xl font-extralight tracking-tight text-white mb-4">
-                  Our Expertise in <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Web Engineering</span>
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center border border-cyan-500/30">
+                  <Shield className="w-8 h-8 text-cyan-400" aria-hidden="true" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-extralight mb-6 tracking-tight">
+                  Enterprise-Grade <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Security</span>
                 </h2>
-                <div className="w-20 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 rounded-full" />
+                <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                  Our development follows GDPR, ISO/IEC, and best security practices to ensure robust data protection and zero vulnerabilities.
+                </p>
               </motion.div>
             </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onMouseEnter={() => setActiveService(service.id)}
-                  onMouseLeave={() => setActiveService(null)}
-                  className="group"
-                >
-                  <Card className="relative h-full overflow-hidden rounded-2xl border border-gray-800/50 bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:shadow-cyan-500/20 hover:border-cyan-500/50 hover:scale-[1.02]">
-                    <CardHeader className="p-8">
-                      <div className="flex items-start justify-between mb-6">
-                        <span className="text-7xl font-extralight text-gray-800 group-hover:text-cyan-400/40 transition-colors duration-500">
-                          {service.number}
-                        </span>
-                        <div className="p-4 rounded-xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 transition-all duration-500 border border-cyan-500/20">
-                          <service.icon className="w-7 h-7 text-cyan-400" />
-                        </div>
-                      </div>
-
-                      <CardTitle className="text-2xl font-normal mb-4 text-gray-100 group-hover:text-white transition-colors">
-                        {service.title}
-                      </CardTitle>
-                    </CardHeader>
-
-                    <CardContent className="px-8 pb-10">
-                      <CardDescription className="text-gray-400 leading-relaxed text-base group-hover:text-gray-300 transition-colors">
-                        {service.description}
-                      </CardDescription>
-
-                      <AnimatePresence>
-                        {activeService === service.id && (
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: 60 }}
-                            exit={{ width: 0 }}
-                            className="mt-8 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
-                          />
-                        )}
-                      </AnimatePresence>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+          </section>
+                                  
+          {/* Why Choose Dcodes Section */}
+          <section className="py-32 px-6 md:px-8 border-t border-gray-800/50" itemScope itemType="https://schema.org/ItemList">
+            <div className="max-w-7xl mx-auto">
+              <motion.div 
+                className="text-center mb-20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <Badge variant="outline" className="mb-6 border-cyan-400/50 text-cyan-400 bg-cyan-400/10 px-4 py-1">
-                  Since 2019
-                </Badge>
-                
-                <h2 className="text-5xl md:text-6xl font-extralight mb-6 tracking-tight leading-tight">
-                  Dcodes<br />
-                  <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                    Technologies
-                  </span>
+                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Why Partner With Us</div>
+                <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight" itemProp="name">
+                  Why Choose <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Dcodes</span>
                 </h2>
-                
-                <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  We are a global technology company engineering digital solutions that elevate brands and accelerate transformation.
+                <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 mb-8" />
+                <p className="text-lg text-gray-400 max-w-2xl mx-auto" itemProp="description">
+                  Your vision, powered by our code.
                 </p>
-
-                <p className="text-base text-gray-400 leading-relaxed mb-10">
-                  Our expertise spans enterprise systems, SaaS products, and high-performance web solutions designed for innovation-driven organizations.
-                </p>
-
-                <div className="space-y-4">
-                  {["Continuous Support", "Quality Assurance", "Modern Technology Stack"].map((item) => (
-                    <div key={item} className="flex items-center gap-3 group cursor-pointer">
-                      <div className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform" />
-                      <span className="text-sm text-gray-300 group-hover:text-white transition-colors">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {capabilities.map((capability, index) => (
-                    <Card key={index} className="p-6 bg-gray-900/40 backdrop-blur-xl border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 group">
-                      <div className="flex items-start gap-4">
-                        <div className="p-2 rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
-                          <capability.icon className="w-5 h-5 text-cyan-400" />
-                        </div>
-                        <span className="text-sm text-gray-300 group-hover:text-white transition-colors leading-relaxed">
-                          {capability.text}
-                        </span>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Showcase Section */}
-        <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-6 uppercase">
-                  Digital Perfection
-                </div>
-
-                <h2 className="text-5xl md:text-6xl font-extralight mb-8 tracking-tight leading-tight">
-                  Digital Perfection,
-
-                  <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
- Crafted with Precision                  </span>
-                </h2>
-
-                <p className="text-gray-300 text-lg leading-relaxed mb-10">
-                  Every Dcodes project reflects our passion for design excellence and engineering precision  delivering speed, security, and seamless performance.
-                </p>
-
-                <div className="space-y-5">
-                  {["Responsive Design – Fluid, adaptive interfaces for every screen and device.", 
-                    "Fast Loading – Engineered for speed and real-time performance.", 
-                    "SEO Optimization – Structurally optimized for visibility and growth."].map((item) => (
-                    <div key={item} className="flex items-start gap-4 group cursor-pointer">
-                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 mt-1.5 group-hover:scale-125 transition-transform" />
-                      <span className="text-gray-300 text-base group-hover:text-white transition-colors">{item}</span>
-                    </div>
-                  ))}
-                </div>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="grid grid-cols-3 gap-6">
-                  {showcaseFeatures.map((item, index) => (
-                    <motion.div 
-                      key={item.title} 
-                      className="text-center group"
-                      whileHover={{ y: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bg-gradient-to-br from-gray-900/60 to-gray-950/60 backdrop-blur-xl border border-gray-800/50 rounded-2xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20">
-                        <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform border border-cyan-500/30">
-                          <item.icon className="w-7 h-7 text-cyan-400" />
-                        </div>
-                        <h3 className="text-sm font-normal mb-2 text-white">{item.title}</h3>
-                        <p className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors">{item.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Technology Stack Section */}
-        <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto">
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Powered By</div>
-              <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight">
-                Technologies We <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Work With</span>
-              </h2>
-              <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6" />
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {techStack.map((tech, index) => (
-                <motion.div
-                  key={tech.category}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onMouseEnter={() => setHoveredTech(index)}
-                  onMouseLeave={() => setHoveredTech(null)}
-                  className="group"
-                >
-                  <Card className="h-full bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 p-6 rounded-xl">
-                    <div className={`w-12 h-12 mx-auto mb-4 bg-gradient-to-br ${tech.color} rounded-lg flex items-center justify-center transition-all`}>
-                      <tech.icon className="w-6 h-6 text-white " />
-                    </div>
-                    <h3 className="text-center text-lg font-normal mb-4 text-white">{tech.category}</h3>
-                    <div className="space-y-2">
-                      {tech.technologies.map((t) => (
-                        <div key={t} className="text-center text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                          {t}
-                        </div>
-                      ))}
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Workflow Section */}
-        <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto">
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Our Process</div>
-              <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight">
-                Project <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Lifecycle</span>
-              </h2>
-              <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6" />
-            </motion.div>
-
-            <div className="relative">
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20" />
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 relative">
-                {workflow.map((item, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                {whyChoose.map((item, index) => (
                   <motion.div
-                    key={item.step}
+                    key={item.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ y: -10 }}
+                    className="group"
+                    itemProp="itemListElement"
+                    itemScope
+                    itemType="https://schema.org/Thing"
+                  >
+                    <Card className="h-full bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 p-8 rounded-xl text-center">
+                      <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 rounded-xl flex items-center justify-center transition-all border border-cyan-500/20">
+                        <item.icon className="w-8 h-8 text-cyan-400" aria-hidden="true" />
+                      </div>
+                      <h3 className="text-sm font-normal text-gray-300 group-hover:text-white transition-colors leading-relaxed" itemProp="name">
+                        {item.title}
+                      </h3>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <ProjectsShowcase />
+
+          {/* Philosophy Section */}
+          <section className="py-32 px-6 md:px-8 border-t border-gray-800/50" itemScope itemType="https://schema.org/ItemList">
+            <div className="max-w-7xl mx-auto">
+              <motion.div 
+                className="text-center mb-20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Our Approach</div>
+                <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tight" itemProp="name">
+                  Our Development <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Philosophy</span>
+                </h2>
+                <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-8" />
+                <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed" itemProp="description">
+                  We believe great web experiences are born where technology meets creativity. Our process ensures each website is elegant, efficient, and inclusive.
+                </p>
+              </motion.div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {philosophy.map((item, index) => (
+                  <motion.div 
+                    key={item.principle}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="text-center group"
+                    itemProp="itemListElement"
+                    itemScope
+                    itemType="https://schema.org/Thing"
                   >
-                    <div className="relative mb-6">
-                      <div className="w-20 h-20 mx-auto bg-gradient-to-br from-gray-900 to-gray-950 border-2 border-gray-800 group-hover:border-cyan-500 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative z-10">
-                        <item.icon className="w-8 h-8 text-cyan-400" />
-                      </div>
-                      {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" /> */}
+                    <div className="bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 p-10 rounded-xl">
+                      <div className="mb-6 flex justify-center" aria-hidden="true">{item.icon}</div>
+                      <h3 className="text-xl font-normal mb-4 group-hover:text-cyan-300 transition-colors text-white" itemProp="name">
+                        {item.principle}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors" itemProp="description">
+                        {item.description}
+                      </p>
                     </div>
-                    <div className="text-gray-500 text-xs mb-2 font-medium">STEP {index + 1}</div>
-                    <h3 className="text-base font-normal text-white group-hover:text-cyan-400 transition-colors">
-                      {item.step}
-                    </h3>
                   </motion.div>
                 ))}
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Industries Section */}
-        <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto">
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Versatile Solutions</div>
-              <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight">
-                Industries We <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Serve</span>
-              </h2>
-              <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6" />
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {industries.map((industry, index) => (
-                <motion.div
-                  key={industry.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="group cursor-pointer"
-                >
-                  <Card className="h-full bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 p-8 rounded-xl text-center">
-                    <div className="w-14 h-14 mx-auto mb-4 bg-cyan-500/10 group-hover:bg-cyan-500/20 rounded-lg flex items-center justify-center transition-all">
-                      <industry.icon className="w-7 h-7 text-cyan-400" />
-                    </div>
-                    <h3 className="text-sm font-normal text-gray-300 group-hover:text-white transition-colors">
-                      {industry.name}
-                    </h3>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Security Section */}
-        <section className="py-0 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl flex items-center justify-center border border-cyan-500/30">
-                <Shield className="w-8 h-8 text-cyan-400" />
-              </div>
-              <h2 className="text-4xl md:text-5xl font-extralight mb-6 tracking-tight">
-                Enterprise-Grade <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Security</span>
-              </h2>
-              <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                Our development follows GDPR, ISO/IEC, and best security practices to ensure robust data protection and zero vulnerabilities.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-                              
-        {/* Why Choose Dcodes Section */}
-        <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto">
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Why Partner With Us</div>
-              <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight">
-                Why Choose <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Dcodes</span>
-              </h2>
-              <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6 mb-8" />
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Your vision, powered by our code.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {whyChoose.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -10 }}
-                  className="group"
-                >
-                  <Card className="h-full bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 p-8 rounded-xl text-center">
-                    <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 group-hover:from-cyan-500/20 group-hover:to-blue-500/20 rounded-xl flex items-center justify-center transition-all border border-cyan-500/20">
-                      <item.icon className="w-8 h-8 text-cyan-400" />
-                    </div>
-                    <h3 className="text-sm font-normal text-gray-300 group-hover:text-white transition-colors leading-relaxed">
-                      {item.title}
-                    </h3>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <ProjectsShowcase />
-
-        {/* Philosophy Section */}
-        <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto">
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Our Approach</div>
-              <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tight">
-
-                Our Development <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Philosophy</span>
-              </h2>
-              <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-8" />
-              <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                We believe great web experiences are born where technology meets creativity. Our process ensures each website is elegant, efficient, and inclusive.
-              </p>
-            </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {philosophy.map((item, index) => (
-                <motion.div 
-                  key={item.principle}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center group"
-                >
-                  <div className="bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border border-gray-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 p-10 rounded-xl">
-<div className="mb-6 flex justify-center">{item.icon}</div>
-                    <h3 className="text-xl font-normal mb-4 group-hover:text-cyan-300 transition-colors text-white">
-                      {item.principle}
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-xs tracking-[0.3em] text-cyan-400 mb-6 uppercase">Get Started</div>
-              <h2 className="text-5xl md:text-7xl font-extralight mb-8 tracking-tight leading-tight">
-                Ready to Launch Your <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                  Digital Future?
-                </span>
-              </h2>
-              <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Transform your ideas into high-impact web applications that engage users, build trust, and scale globally.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-                <Link href={'https://calendly.com/sales-dcodestechnologies/30min'} className="group bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-10 py-4 text-sm tracking-wider uppercase hover:shadow-2xl hover:shadow-cyan-500/50 transition-all rounded-lg flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  Schedule a 15-Minute Strategy Call
-                </Link>
+          {/* CTA Section */}
+          <section className="py-32 px-6 md:px-8 border-t border-gray-800/50">
+            <div className="max-w-5xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-6 uppercase">Get Started</div>
+                <h2 className="text-5xl md:text-7xl font-extralight mb-8 tracking-tight leading-tight">
+                  Ready to Launch Your <br />
+                  <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                    Digital Future?
+                  </span>
+                </h2>
+                <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                  Transform your ideas into high-impact web applications that engage users, build trust, and scale globally.
+                </p>
                 
-                <Link href={''} className="border border-gray-700 hover:border-cyan-500 px-10 py-4 text-sm tracking-wider uppercase transition-all rounded-lg text-white hover:bg-cyan-500/5">
-                  View Case Studies
-                </Link>
-              </div>
-              
-              <div className="flex items-center justify-center gap-2 text-xs text-gray-500 uppercase tracking-wider">
-                <span className="flex items-center gap-2">
-                  <Check className="w-3 h-4 text-cyan-400" />
-                  Free Consultation
-                </span>
-                <span className="text-gray-700">•</span>
-                <span className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-cyan-400" />
-                  No Obligation
-                </span>
-                <span className="text-gray-700">•</span>
-                <span className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-cyan-400" />
-                  Expert Guidance
-                </span>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-0 px-6 md:px-8 border-t border-gray-800/50">
-          <div className="max-w-4xl mx-auto">
-            <motion.div 
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Questions</div>
-              <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight">
-                Frequently <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Asked</span>
-              </h2>
-              <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6" />
-            </motion.div>
-            
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border border-gray-800/50 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all"
-                >
-                  <button
-                    className="w-full text-left p-6 hover:bg-gray-800/20 transition-colors flex items-center justify-between group"
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  >
-                    <h3 className="text-base font-normal pr-8 text-white group-hover:text-cyan-400 transition-colors">
-                      {faq.question}  
-                    </h3>
-                    <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/10 flex items-center justify-center transition-all ${openFaq === index ? 'rotate-45 bg-cyan-500/20' : ''}`}>
-                      <span className={`text-xl ${openFaq === index ? 'text-cyan-400' : 'text-gray-400'}`}>
-                        +
-                      </span>
-                    </div>
-                  </button>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+                  <Link href={'https://calendly.com/sales-dcodestechnologies/30min'} className="group bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-10 py-4 text-sm tracking-wider uppercase hover:shadow-2xl hover:shadow-cyan-500/50 transition-all rounded-lg flex items-center gap-2" aria-label="Schedule a 15-minute strategy call for web development">
+                    <Calendar className="w-4 h-4" aria-hidden="true" />
+                    Schedule a 15-Minute Strategy Call
+                  </Link>
                   
-                  <AnimatePresence>
-                    {openFaq === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-6 border-t border-gray-800/50">
-                          <p className="text-gray-300 leading-relaxed pt-4 text-sm">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
+                  <Link href={''} className="border border-gray-700 hover:border-cyan-500 px-10 py-4 text-sm tracking-wider uppercase transition-all rounded-lg text-white hover:bg-cyan-500/5" aria-label="View web development case studies">
+                    View Case Studies
+                  </Link>
+                </div>
+                
+                <div className="flex items-center justify-center gap-2 text-xs text-gray-500 uppercase tracking-wider">
+                  <span className="flex items-center gap-2">
+                    <Check className="w-3 h-4 text-cyan-400" aria-hidden="true" />
+                    Free Consultation
+                  </span>
+                  <span className="text-gray-700" aria-hidden="true">•</span>
+                  <span className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-cyan-400" aria-hidden="true" />
+                    No Obligation
+                  </span>
+                  <span className="text-gray-700" aria-hidden="true">•</span>
+                  <span className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-cyan-400" aria-hidden="true" />
+                    Expert Guidance
+                  </span>
+                </div>
+              </motion.div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Footer */}
-     {/* Footer */}
-<footer className="bg-gradient-to-b from-gray-900 to-black py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
-  <div className="max-w-7xl mx-auto">
-    {/* Main Footer Content */}
-    <div className="text-center mb-12">
-      <div className="mb-8">
-        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-3">
-          <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
-            Dcodes Technologies
-          </span>
-        </h3>
-        <p className="text-sm sm:text-base text-gray-400 tracking-wider max-w-2xl mx-auto leading-relaxed">
-          Driving Global Digital Transformation Through Innovative Solutions
-        </p>
-      </div>
-      
-      {/* Services Navigation */}
-      <nav className="mb-8" aria-label="Services">
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400 uppercase tracking-wider">
-          <a 
-            href="/services/appDevelopment" 
-            className="hover:text-cyan-300 transition-all duration-300 font-medium px-2 py-1 rounded-lg hover:bg-gray-800/30"
-          >
-            App Development
-          </a>
-          
-          <span className="text-gray-600 hidden sm:inline">•</span>
-          
-          <a 
-            href="/services/webDevelopment" 
-            className="hover:text-cyan-300 transition-all duration-300 font-medium px-2 py-1 rounded-lg hover:bg-gray-800/30"
-          >
-            Web Development
-          </a>
-          
-          <span className="text-gray-600 hidden sm:inline">•</span>
-          
-          <a 
-            href="/services/erpSystem" 
-            className="hover:text-cyan-300 transition-all duration-300 font-medium px-2 py-1 rounded-lg hover:bg-gray-800/30"
-          >
-            ERP System
-          </a>
-          
-          <span className="text-gray-600 hidden sm:inline">•</span>
-          
-          <a 
-            href="/services/digitalMarketing" 
-            className="hover:text-cyan-300 transition-all duration-300 font-medium px-2 py-1 rounded-lg hover:bg-gray-800/30"
-          >
-            Digital Marketing
-          </a>
+          {/* FAQ Section */}
+          <section className="py-0 px-6 md:px-8 border-t border-gray-800/50" itemScope itemType="https://schema.org/FAQPage">
+            <div className="max-w-4xl mx-auto">
+              <motion.div 
+                className="text-center mb-20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="text-xs tracking-[0.3em] text-cyan-400 mb-4 uppercase">Questions</div>
+                <h2 className="text-4xl md:text-6xl font-extralight mb-4 tracking-tight">
+                  Frequently <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Asked</span>
+                </h2>
+                <div className="w-20 h-px bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-6" />
+              </motion.div>
+              
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-gradient-to-br from-gray-900/40 to-gray-950/40 backdrop-blur-xl border border-gray-800/50 rounded-xl overflow-hidden hover:border-cyan-500/30 transition-all"
+                    itemScope
+                    itemType="https://schema.org/Question"
+                  >
+                    <button
+                      className="w-full text-left p-6 hover:bg-gray-800/20 transition-colors flex items-center justify-between group"
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      aria-expanded={openFaq === index}
+                      aria-controls={`faq-answer-${index}`}
+                    >
+                      <h3 className="text-base font-normal pr-8 text-white group-hover:text-cyan-400 transition-colors" itemProp="name">
+                        {faq.question}  
+                      </h3>
+                      <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/10 flex items-center justify-center transition-all ${openFaq === index ? 'rotate-45 bg-cyan-500/20' : ''}`}>
+                        <span className={`text-xl ${openFaq === index ? 'text-cyan-400' : 'text-gray-400'}`} aria-hidden="true">
+                          +
+                        </span>
+                      </div>
+                    </button>
+                    
+                    <AnimatePresence>
+                      {openFaq === index && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                          id={`faq-answer-${index}`}
+                          itemScope
+                          itemType="https://schema.org/Answer"
+                          itemProp="acceptedAnswer"
+                        >
+                          <div className="px-6 pb-6 border-t border-gray-800/50">
+                            <p className="text-gray-300 leading-relaxed pt-4 text-sm" itemProp="text">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-gradient-to-b from-gray-900 to-black py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
+            <div className="max-w-7xl mx-auto">
+              {/* Main Footer Content */}
+              <div className="text-center mb-12">
+                <div className="mb-8">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-3">
+                    <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
+                      Dcodes Technologies
+                    </span>
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-400 tracking-wider max-w-2xl mx-auto leading-relaxed">
+                    Driving Global Digital Transformation Through Innovative Solutions
+                  </p>
+                </div>
+                
+                {/* Services Navigation */}
+                <nav className="mb-8" aria-label="Services">
+                  <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400 uppercase tracking-wider">
+                    <a 
+                      href="/services/appDevelopment" 
+                      className="hover:text-cyan-300 transition-all duration-300 font-medium px-2 py-1 rounded-lg hover:bg-gray-800/30"
+                    >
+                      App Development
+                    </a>
+                    
+                    <span className="text-gray-600 hidden sm:inline" aria-hidden="true">•</span>
+                    
+                    <a 
+                      href="/services/webDevelopment" 
+                      className="hover:text-cyan-300 transition-all duration-300 font-medium px-2 py-1 rounded-lg hover:bg-gray-800/30"
+                    >
+                      Web Development
+                    </a>
+                    
+                    <span className="text-gray-600 hidden sm:inline" aria-hidden="true">•</span>
+                    
+                    <a 
+                      href="/services/erpSystem" 
+                      className="hover:text-cyan-300 transition-all duration-300 font-medium px-2 py-1 rounded-lg hover:bg-gray-800/30"
+                    >
+                      ERP System
+                    </a>
+                    
+                    <span className="text-gray-600 hidden sm:inline" aria-hidden="true">•</span>
+                    
+                    <a 
+                      href="/services/digitalMarketing" 
+                      className="hover:text-cyan-300 transition-all duration-300 font-medium px-2 py-1 rounded-lg hover:bg-gray-800/30"
+                    >
+                      Digital Marketing
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </footer>
         </div>
-      </nav>
-    </div>
-
-
-    {/* Bottom Bar */}
-  
-  </div>
-</footer>
       </div>
-    </div>
+    </>
   );
 }
