@@ -642,9 +642,9 @@ export default function EnhancedPremiumAppDev() {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Enterprise Grade Mobile App Development | Dcodes Mobile Studio</title>
-        <meta name="description" content="Expert mobile app development for iOS, Android, and cross-platform solutions. Enterprise-grade apps with performance, security, and scalability. Get your app launched!" />
-        <meta name="keywords" content="mobile app development, iOS development, Android development, Flutter, React Native, enterprise apps, cross-platform apps, app development company, Gujarat, India" />
+        <title>Mobile App Development Company | Android & iOS Apps – Dcodes</title>
+        <meta name="description" content="Leading mobile app development company offering custom Android, iOS, and cross-platform solutions. Build scalable and secure mobile applications for global businesses." />
+        <meta name="keywords" content="mobile app development company,android app development services,ios app development services,cross platform app development,hybrid app development company,flutter app development services,react native app development" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Enterprise Grade Mobile App Development | Dcodes" />

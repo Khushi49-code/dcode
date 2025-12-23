@@ -119,9 +119,9 @@ const LifeAtDecodes = () => {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Life at Dcodes Technologies | Company Culture & Careers</title>
-        <meta name="description" content="Discover life at Dcodes Technologies: Modern workplace culture, team values, infrastructure, perks, and career opportunities. Join our innovative team." />
-        <meta name="keywords" content="Dcodes Technologies careers, company culture, workplace environment, tech company culture, employee benefits, team building, modern office, career opportunities, work-life balance" />
+        <title>Life at Dcodes Technologies | Company Culture & Team</title>
+        <meta name="description" content="Discover life at Dcodes Technologies — our culture, team values, work environment, and what makes working with us exciting for tech professionals and creatives." />
+        <meta name="keywords" content="life at Dcodes Technologies,Dcodes company culture,working at Dcodes Technologies,career at Dcodes,employee experience at Dcodes,tech company culture in Ahmedabad" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Life at Dcodes Technologies | Company Culture & Careers" />

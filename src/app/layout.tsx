@@ -6,6 +6,9 @@ import Navbar from "@/components/Navbar";
 import SubscribeFooter from "@/components/Footer";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import CustomChatbot from "@/components/CustomChatbot";
+import Script from "next/script";
+ import ProtectConsole from "@/components/ProtectConsole";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,43 +20,66 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// export const metadata: Metadata = {
-//   title: "Dcodes - AI Solutions for Modern Businesses",
-//   description:
-//     "Stay ahead with our cutting-edge AI solutions tailored for your business needs.",
-// };
-
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.dcodestech.com"),
-  title: "Dcodes Technologies – IT Solutions, Web & App Development",
+
+  title: {
+    default: "Dcodes Technologies",
+    template: "%s | Dcodes Technologies",
+  },
+
   description:
-    "Dcodes Technologies provides high-performance web, software, ERP, mobile app & digital marketing solutions.",
+    "Dcodes Technologies is a web development and IT solutions company.",
+
   openGraph: {
-    title: "Dcodes Technologies – IT & Web Solutions",
-    description:
-      "We offer scalable IT solutions like websites, ERPs, apps & SEO to grow your business.",
-    url: "https://www.dcodestech.com",
-    images: [
-      {
-        url: "https://www.dcodestech.com/og-image.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
+    siteName: "Dcodes Technologies",
+    type: "website",
   },
 };
 
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {/* ✅ Schema Markup */}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Dcodes Technologies",
+              url: "https://www.dcodestech.com",
+              logo: "https://www.dcodestech.com/logo.png",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "E914 Ganesh Glory 11",
+                addressLocality: "Ahmedabad",
+                addressRegion: "Gujarat",
+                postalCode: "382470",
+                addressCountry: "IN",
+              },
+              sameAs: [
+                "https://www.facebook.com/share/1F89hvr99T/",
+                "https://www.instagram.com/dcodes_technologies",
+                "https://www.linkedin.com/company/dcodes-technologies/",
+              ],
+            }),
+          }}
+        />
+
         <LoadingScreen>
           <Navbar />
+            <ProtectConsole /> 
           {children}
           <Toaster position="top-right" />
           <SubscribeFooter />

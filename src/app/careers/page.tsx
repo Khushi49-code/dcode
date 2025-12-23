@@ -569,9 +569,9 @@ export default function CareersPage() {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Careers | Job Opportunities at Dcodes Technologies</title>
-        <meta name="description" content="Join Dcodes Technologies careers. Explore job opportunities in web development, mobile app development, UI/UX design, and digital marketing. Apply now!" />
-        <meta name="keywords" content="careers, job opportunities, web development jobs, mobile app development jobs, UI/UX design jobs, digital marketing jobs, software developer jobs, Gujarat jobs, IT careers" />
+        <title>Careers at Dcodes Technologies | Jobs & Career Opportunities</title>
+        <meta name="description" content="Explore careers at Dcodes Technologies. Join our team of web, mobile, and software experts — open positions in development, marketing, and IT support." />
+        <meta name="keywords" content="careers at Dcodes Technologies,Dcodes Technologies careers,jobs at Dcodes,technology jobs,software development careers,mobile app developer jobs" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Careers | Job Opportunities at Dcodes Technologies" />

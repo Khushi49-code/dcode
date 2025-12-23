@@ -260,9 +260,9 @@ const ConnectPage = () => {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Contact Us | Get in Touch | Dcodes Technologies</title>
-        <meta name="description" content="Contact Dcodes Technologies for web development, mobile apps, UI/UX design, SEO, and digital marketing services. Get a free consultation today." />
-        <meta name="keywords" content="contact Dcodes, web development contact, mobile app development, UI/UX design, SEO services, digital marketing, technology consulting, get quote, free consultation" />
+        <title>Contact Web Development Company | Get a Quote – Dcodes</title>
+        <meta name="description" content=" Get in touch with Dcodes for web development, mobile apps, software solutions, digital marketing, or ERP services. Request a consultation or a quote today." />
+        <meta name="keywords" content="contact web development company,contact IT services company,software solution inquiry,mobile app development contact,digital marketing inquiry" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Contact Us | Get in Touch | Dcodes Technologies" />

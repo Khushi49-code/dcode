@@ -218,9 +218,10 @@ export default function BlogsPage() {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Blog | Technology, Business & Lifestyle Insights | Dcodes Technologies</title>
-        <meta name="description" content="Read our latest blog posts on technology trends, business insights, lifestyle topics, SaaS, fashion, health, travel, and food. Expert articles from Dcodes Technologies." />
-        <meta name="keywords" content="technology blog, business insights, SaaS blog, fashion technology, lifestyle blog, health tech, travel tech, food technology, digital marketing blog, web development blog" />
+        <title>Business Tech & Digital Solutions Blog – Dcodes</title>
+        <meta name="description" content="Explore the Dcodes Blog for expert insights on web & app development, software solutions, digital marketing, and business tech trends to grow your business." />
+        <meta name="keywords" content="business tech blog,technology blog for businesses,software development blog,digital marketing blog
+,web development tips,mobile app development insights" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Blog | Technology, Business & Lifestyle Insights | Dcodes" />

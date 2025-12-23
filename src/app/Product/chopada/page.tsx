@@ -9,9 +9,12 @@ const ChopadaLanding = () => {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Chopada App - Digital Platform for Bhudev Families & Spiritual Legacy</title>
-        <meta name="description" content="Modern platform for managing puja records, client relationships, and family lineage. Preserve your spiritual heritage with Chopada App designed for Bhudev families." />
-        <meta name="keywords" content="Chopada app, Bhudev families, puja management, spiritual legacy, family lineage, Hindu rituals, priest software, puja records, digital spiritual platform" />
+        <title>Business Management Software | Chopada App – Dcodes</title>
+        <meta name="description" content="Chopada is a business management software app by Dcodes that streamlines tasks, team coordination, and workflows for small and medium enterprises worldwide." />
+        <meta name="keywords" content="business management software,business management app,business management system,enterprise business management software,business process automation software
+,cloud business management solution
+,
+SME business management tool" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Chopada App - Digital Platform for Bhudev Families & Spiritual Legacy" />

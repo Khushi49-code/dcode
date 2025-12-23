@@ -120,6 +120,19 @@
     @apply bg-background text-foreground;
   }
 }
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+img {
+  pointer-events: none;
+}
 
 
 .leaflet-container {

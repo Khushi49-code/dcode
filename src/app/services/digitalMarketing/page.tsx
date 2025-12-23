@@ -477,9 +477,9 @@ export default function DigitalMarketingSolutions() {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Digital Marketing Solutions | SEO, PPC, SMM | Dcodes Technologies</title>
-        <meta name="description" content="Expert digital marketing services: SEO optimization, PPC advertising, social media marketing, content strategy. Drive measurable growth with data-driven campaigns." />
-        <meta name="keywords" content="digital marketing, SEO services, PPC advertising, social media marketing, content marketing, marketing automation, conversion optimization, Google Ads, Meta Ads, email marketing" />
+        <title>Digital Marketing Services | SEO, PPC & Social Media – Dcodes</title>
+        <meta name="description" content="Comprehensive digital marketing services including SEO, PPC, social media marketing, content marketing, and performance campaigns to grow your business online." />
+        <meta name="keywords" content="digital marketing services,online marketing services,digital advertising services,seo & sem services,social media marketing services,performance marketing agency,content marketing services,ppc management services" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Digital Marketing Solutions | SEO, PPC, SMM | Dcodes" />

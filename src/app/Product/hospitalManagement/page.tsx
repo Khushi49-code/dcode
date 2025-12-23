@@ -70,9 +70,10 @@ export default function Hospital() {
         <>
             {/* SEO Meta Tags and Structured Data */}
             <Head>
-                <title>Hospital ERP Solutions | Healthcare Management System | Dcodes Technologies</title>
-                <meta name="description" content="Comprehensive Hospital ERP solution for patient management, appointment scheduling, pharmacy inventory, billing, and EHR integration. Transform healthcare management." />
-                <meta name="keywords" content="hospital ERP, healthcare management system, patient management, EHR integration, medical software, hospital management software, pharmacy inventory, appointment scheduling, HIPAA compliant" />
+                <title>Hospital Management System Software | Healthcare Management – Dcodes</title>
+                <meta name="description" content="Get advanced hospital management system software for healthcare and medical institutions. Streamline operations, patient care, billing, and reporting with our solution." />
+                <meta name="keywords" content="hospital management system software,hospital management software,hospital information system,healthcare management system,medical practice management software
+,clinic management software" />
                 
                 {/* Open Graph Tags */}
                 <meta property="og:title" content="Hospital ERP Solutions | Healthcare Management System | Dcodes" />

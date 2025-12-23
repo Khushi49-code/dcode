@@ -782,9 +782,9 @@ const AboutUsPage = () => {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>About Dcodes Technologies | IT Solutions & Digital Services Company</title>
-        <meta name="description" content="Dcodes Technologies is a leading IT solutions company specializing in web development, mobile apps, ERP systems, SEO, and digital marketing services since 2019." />
-        <meta name="keywords" content="Dcodes Technologies about us, IT solutions company, web development company, mobile app development, ERP solutions, digital marketing services, SEO company, software development" />
+        <title>About Us – IT Services Company | Dcodes Technologies</title>
+        <meta name="description" content="Learn about Dcodes Technologies — a global IT services company offering web, mobile, and software development, digital marketing, and AI solutions for businesses worldwide." />
+        <meta name="keywords" content="IT services company" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="About Dcodes Technologies | IT Solutions Company" />

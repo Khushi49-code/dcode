@@ -582,9 +582,10 @@ export default function DcodesWebsiteDev() {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Professional Web Development Services | Dcodes Technologies</title>
-        <meta name="description" content="Expert web development services including digital architecture, e-commerce solutions, web applications, and ongoing maintenance. Build scalable, high-performing websites with Dcodes." />
-        <meta name="keywords" content="web development, website development, e-commerce solutions, web applications, digital architecture, responsive websites, web design, frontend development, backend development, React, Next.js, Laravel, Python" />
+        <title>Web Development Services | Custom & Responsive Websites – Dcodes</title>
+        <meta name="description" content="Professional web development services building custom, responsive, and SEO-optimized websites for businesses worldwide — scalable, secure, and future-ready." />
+        <meta name="keywords" content="web development services,custom web development services,website development company,responsive website development,full stack web development,ecommerce website development services
+,front end and back end web development" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Professional Web Development Services | Dcodes Technologies" />

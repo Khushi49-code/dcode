@@ -553,9 +553,9 @@ export default function PremiumERPSolutions() {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Premium ERP Solutions | Enterprise Resource Planning | Dcodes Technologies</title>
-        <meta name="description" content="Expert ERP solutions for businesses: Custom ERP development, SAP/Oracle implementation, system integration & optimization. Streamline operations with intelligent ERP systems." />
-        <meta name="keywords" content="ERP solutions, enterprise resource planning, custom ERP development, SAP implementation, Oracle ERP, Microsoft Dynamics, system integration, ERP optimization, business automation, cloud ERP" />
+        <title>ERP System Development Services | Custom ERP Solutions – Dcodes</title>
+        <meta name="description" content="Professional ERP system development services for custom, scalable, and cloud-ready enterprise solutions. Automate business processes with our ERP experts." />
+        <meta name="keywords" content="ERP system development services,erp software development services,erp system solutions,enterprise resource planning software,custom ERP development company,cloud ERP system,erp implementation services" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Premium ERP Solutions | Enterprise Resource Planning | Dcodes" />

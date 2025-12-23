@@ -4,20 +4,20 @@ import CountUp from "react-countup";
 import { useState } from 'react';
 import Threads from "@/components/ReactBit/Threads";
 import Head from 'next/head';
-import { 
-  Users, 
-  Wrench, 
-  Award, 
-  Target, 
-  Store, 
-  BarChart3, 
-  UserCheck, 
-  FileText, 
-  ShoppingCart, 
-  Settings, 
-  CheckCircle, 
-  DollarSign, 
-  Headphones, 
+import {
+  Users,
+  Wrench,
+  Award,
+  Target,
+  Store,
+  BarChart3,
+  UserCheck,
+  FileText,
+  ShoppingCart,
+  Settings,
+  CheckCircle,
+  DollarSign,
+  Headphones,
   UserCog,
   ChevronDown,
   Zap,
@@ -62,113 +62,113 @@ const PremiumERPProducts = () => {
   ];
 
   const coreModules = [
-    { 
-      id: 'crm', 
-      name: 'CRM', 
+    {
+      id: 'crm',
+      name: 'CRM',
       icon: Users,
       title: 'Customer Relationship Management',
       description: 'Complete customer lifecycle management from lead generation to retention',
       features: ['Lead Management', 'Contact Database', 'Sales Pipeline', 'Customer Support', 'Email Integration', 'Follow-up Automation']
     },
-    { 
-      id: 'tools', 
-      name: 'TOOLS', 
+    {
+      id: 'tools',
+      name: 'TOOLS',
       icon: Wrench,
       title: 'Business Tools Suite',
       description: 'Essential productivity tools for daily business operations',
       features: ['Task Management', 'Document Scanner', 'Barcode Generator', 'QR Code Scanner', 'File Converter', 'Backup Tools']
     },
-    { 
-      id: 'certificate', 
-      name: 'CERTIFICATE', 
+    {
+      id: 'certificate',
+      name: 'CERTIFICATE',
       icon: Award,
       title: 'Certificate Management',
       description: 'Digital certificate creation, validation and management system',
       features: ['Certificate Generation', 'Digital Signatures', 'Validation System', 'Template Library', 'Bulk Processing', 'Security Compliance']
     },
-    { 
-      id: 'project', 
-      name: 'PROJECT', 
+    {
+      id: 'project',
+      name: 'PROJECT',
       icon: Target,
       title: 'Project Management',
       description: 'End-to-end project planning, execution and monitoring',
       features: ['Task Assignment', 'Timeline Management', 'Resource Allocation', 'Progress Tracking', 'Team Collaboration', 'Milestone Tracking']
     },
-    { 
-      id: 'store', 
-      name: 'STORE', 
+    {
+      id: 'store',
+      name: 'STORE',
       icon: Store,
       title: 'Store Management',
       description: 'Comprehensive retail and inventory management solution',
       features: ['POS System', 'Inventory Control', 'Stock Management', 'Sales Analytics', 'Customer Database', 'Multi-location Support']
     },
-    { 
-      id: 'account', 
-      name: 'ACCOUNT', 
+    {
+      id: 'account',
+      name: 'ACCOUNT',
       icon: BarChart3,
       title: 'Accounting & Finance',
       description: 'Complete financial management and accounting solution',
       features: ['General Ledger', 'Accounts Payable/Receivable', 'Financial Reporting', 'Tax Management', 'Budget Planning', 'Audit Trail']
     },
-    { 
-      id: 'hr', 
-      name: 'HR', 
+    {
+      id: 'hr',
+      name: 'HR',
       icon: UserCheck,
       title: 'Human Resources',
       description: 'Complete workforce management and HR operations',
       features: ['Employee Database', 'Payroll Management', 'Attendance Tracking', 'Performance Reviews', 'Recruitment', 'Training Management']
     },
-    { 
-      id: 'cms', 
-      name: 'CMS', 
+    {
+      id: 'cms',
+      name: 'CMS',
       icon: FileText,
       title: 'Content Management System',
       description: 'Digital content creation, management and publishing platform',
       features: ['Content Creation', 'Media Library', 'SEO Tools', 'Version Control', 'User Permissions', 'Multi-site Management']
     },
-    { 
-      id: 'purchase', 
-      name: 'PURCHASE', 
+    {
+      id: 'purchase',
+      name: 'PURCHASE',
       icon: ShoppingCart,
       title: 'Purchase Management',
       description: 'Streamlined procurement and supplier management system',
       features: ['Purchase Orders', 'Supplier Management', 'RFQ Processing', 'Approval Workflow', 'Cost Analysis', 'Delivery Tracking']
     },
-    { 
-      id: 'production', 
-      name: 'PRODUCTION', 
+    {
+      id: 'production',
+      name: 'PRODUCTION',
       icon: Settings,
       title: 'Production Planning',
       description: 'Manufacturing and production optimization system',
       features: ['Production Scheduling', 'Resource Planning', 'Work Orders', 'Quality Control', 'Capacity Management', 'Cost Tracking']
     },
-    { 
-      id: 'qc', 
-      name: 'QC', 
+    {
+      id: 'qc',
+      name: 'QC',
       icon: CheckCircle,
       title: 'Quality Control',
       description: 'Comprehensive quality assurance and testing management',
       features: ['Quality Standards', 'Inspection Checklists', 'Test Management', 'Non-conformance Tracking', 'Corrective Actions', 'Compliance Reports']
     },
-    { 
-      id: 'sales', 
-      name: 'SALES', 
+    {
+      id: 'sales',
+      name: 'SALES',
       icon: DollarSign,
       title: 'Sales Management',
       description: 'Complete sales process automation and performance tracking',
       features: ['Sales Orders', 'Quotation Management', 'Price Lists', 'Commission Tracking', 'Sales Analytics', 'Customer Portal']
     },
-    { 
-      id: 'service', 
-      name: 'SERVICE', 
+    {
+      id: 'service',
+      name: 'SERVICE',
       icon: Headphones,
       title: 'Service Management',
       description: 'Customer service and support ticket management system',
       features: ['Ticket Management', 'SLA Tracking', 'Knowledge Base', 'Service Scheduling', 'Field Service', 'Customer Feedback']
     },
-    { 
-      id: 'reception', 
-      name: 'RECEPTION', 
+    {
+      id: 'reception',
+      name: 'RECEPTION',
       icon: UserCog,
       title: 'Reception Management',
       description: 'Front desk operations and visitor management system',
@@ -197,10 +197,20 @@ const PremiumERPProducts = () => {
     <>
       {/* SEO Meta Tags and Structured Data */}
       <Head>
-        <title>Premium ERP Solutions | Enterprise Resource Planning Software | Dcodes Technologies</title>
-        <meta name="description" content="Comprehensive ERP software with 14+ integrated modules for manufacturing, retail, healthcare, finance, and real estate industries. Cloud-based, scalable enterprise solutions." />
-        <meta name="keywords" content="ERP software, enterprise resource planning, business management software, cloud ERP, manufacturing ERP, retail ERP, healthcare ERP, finance ERP, CRM, HRMS, accounting software, inventory management" />
-        
+        <title>ERP Software Development Company | Custom ERP Solutions – Dcodes</title>
+        <meta name="description" content="Professional ERP software development company offering custom ERP solutions, business automation, and scalable enterprise resource planning systems for global clients." />
+        <meta name="keywords" content="ERP software development company,ERP software development services,enterprise resource planning software,
+
+custom ERP solutions,
+
+cloud ERP solutions,
+
+business automation software,
+
+erp implementation services,
+
+erp development company" />
+
         {/* Open Graph Tags */}
         <meta property="og:title" content="Premium ERP Solutions | Enterprise Resource Planning Software" />
         <meta property="og:description" content="An all-in-one ERP ecosystem designed to unify your operations, boost productivity, and drive data-driven decision-making across every department." />
@@ -208,16 +218,16 @@ const PremiumERPProducts = () => {
         <meta property="og:url" content="https://dcodes.com/erp-products" />
         <meta property="og:image" content="https://dcodes.com/og-image-erp-products.jpg" />
         <meta property="og:site_name" content="Dcodes Technologies" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Premium ERP Solutions | Dcodes Technologies" />
         <meta name="twitter:description" content="14+ integrated business modules for enterprise resource planning and management." />
         <meta name="twitter:image" content="https://dcodes.com/twitter-card-erp-products.jpg" />
-        
+
         {/* Canonical URL */}
         <link rel="canonical" href="https://dcodes.com/erp-products" />
-        
+
         {/* Structured Data for Software Application */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -248,7 +258,7 @@ const PremiumERPProducts = () => {
             }
           })}
         </script>
-        
+
         {/* Structured Data for Product Page */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -273,13 +283,13 @@ const PremiumERPProducts = () => {
             }
           })}
         </script>
-        
+
         {/* Additional Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="author" content="Dcodes Technologies" />
         <meta name="theme-color" content="#000000" />
-        
+
         {/* Language and Region */}
         <meta httpEquiv="content-language" content="en" />
         <meta name="geo.region" content="IN-GJ" />
@@ -305,18 +315,18 @@ const PremiumERPProducts = () => {
                   <br />
                   <span className="text-white">with Smart ERP Innovation</span>
                 </h1>
-                
+
                 <div className="w-20 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto" aria-hidden="true"></div>
-                
+
                 <p className="text-xl md:text-2xl text-gray-400 font-normal max-w-3xl mx-auto leading-relaxed" itemProp="description">
                   An all-in-one ERP ecosystem designed to unify your operations, boost productivity, and drive data-driven decision-making.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-                <a 
-                  href="https://calendly.com/sales-dcodestechnologies/30min" 
-                  target="_blank" 
+                <a
+                  href="https://calendly.com/sales-dcodestechnologies/30min"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="group w-48 sm:w-52 h-14 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2"
                   aria-label="Start free trial of ERP software"
@@ -326,9 +336,9 @@ const PremiumERPProducts = () => {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
 
-                <a 
-                  href="https://youtu.be/z_WMlNtK0ac?si=q7UX27Mcp0_oUuy-" 
-                  target="_blank" 
+                <a
+                  href="https://youtu.be/z_WMlNtK0ac?si=q7UX27Mcp0_oUuy-"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-48 sm:w-52 h-14 border border-gray-700 text-white font-medium rounded-lg hover:border-gray-500 hover:bg-white/5 transition-all duration-300 flex items-center justify-center"
                   aria-label="Watch ERP software demo video"
@@ -390,7 +400,7 @@ const PremiumERPProducts = () => {
                 Our modular system adapts to your unique workflows helping organizations across diverse sectors achieve operational excellence.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {industries.map((industry, index) => {
                 const IconComponent = industry.icon;
@@ -425,10 +435,10 @@ const PremiumERPProducts = () => {
         <section className="py-12 px-6 border-t border-gray-800">
           <div className="max-w-6xl mx-auto text-center">
             <p className="text-sm uppercase tracking-wider text-gray-500 font-medium">
-              Trusted by brands across Manufacturing <span className="mx-1.5" aria-hidden="true">•</span> 
-              Finance <span className="mx-1.5" aria-hidden="true">•</span> 
-              Healthcare <span className="mx-1.5" aria-hidden="true">•</span> 
-              IT <span className="mx-1.5" aria-hidden="true">•</span> 
+              Trusted by brands across Manufacturing <span className="mx-1.5" aria-hidden="true">•</span>
+              Finance <span className="mx-1.5" aria-hidden="true">•</span>
+              Healthcare <span className="mx-1.5" aria-hidden="true">•</span>
+              IT <span className="mx-1.5" aria-hidden="true">•</span>
               Retail
             </p>
           </div>
@@ -443,7 +453,7 @@ const PremiumERPProducts = () => {
                 <p className="text-xl text-gray-400 font-normal mb-8" itemProp="description">
                   Driving Digital Transformation for the Modern Enterprise
                 </p>
-                
+
                 <div className="space-y-4" itemScope itemType="https://schema.org/ItemList">
                   {whyChoose.map((item, index) => (
                     <motion.div
@@ -462,12 +472,12 @@ const PremiumERPProducts = () => {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <p className="text-gray-400 mt-8 leading-relaxed">
                   At Dcodes, we don't just implement ERP systems we build future-ready ecosystems that empower enterprises to grow smarter, faster, and stronger.
                 </p>
               </div>
-              
+
               <div className="bg-white/5 rounded-2xl p-8 border border-gray-800">
                 <div className="space-y-6">
                   <div className="text-center">
@@ -477,7 +487,7 @@ const PremiumERPProducts = () => {
                     <h3 className="text-2xl font-normal text-white mb-2">Enterprise Ready</h3>
                     <p className="text-gray-400">Scalable solutions for businesses of all sizes</p>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 rounded-lg bg-white/5">
                       <div className="text-2xl font-normal text-white">99.9%</div>
@@ -509,18 +519,17 @@ const PremiumERPProducts = () => {
               <h2 className="text-4xl md:text-5xl font-normal mb-6 text-white" itemProp="name">Core Modules</h2>
               <p className="text-xl text-gray-400 font-normal" itemProp="description">Comprehensive solutions for every business need</p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {coreModules.map((module) => {
                 const IconComponent = module.icon;
                 const isActive = activeModule === module.id;
-                
+
                 return (
                   <motion.div
                     key={module.id}
-                    className={`group cursor-pointer border border-gray-800 rounded-xl p-6 transition-all duration-500 hover:border-gray-600 ${
-                      isActive ? 'border-white/30 bg-white/5' : 'hover:bg-white/5'
-                    }`}
+                    className={`group cursor-pointer border border-gray-800 rounded-xl p-6 transition-all duration-500 hover:border-gray-600 ${isActive ? 'border-white/30 bg-white/5' : 'hover:bg-white/5'
+                      }`}
                     onClick={() => setActiveModule(isActive ? null : module.id)}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -540,21 +549,19 @@ const PremiumERPProducts = () => {
                           <p className="text-xs text-gray-500 uppercase tracking-wide" itemProp="applicationCategory">{module.title}</p>
                         </div>
                       </div>
-                      <ChevronDown 
-                        className={`w-4 h-4 text-gray-500 transition-transform duration-300 ${
-                          isActive ? 'rotate-180 text-white' : ''
-                        }`}
+                      <ChevronDown
+                        className={`w-4 h-4 text-gray-500 transition-transform duration-300 ${isActive ? 'rotate-180 text-white' : ''
+                          }`}
                         aria-hidden="true"
                       />
                     </div>
-                    
+
                     <p className="text-gray-400 text-sm leading-relaxed mb-4 font-normal" itemProp="description">
                       {module.description}
                     </p>
-                    
-                    <div className={`overflow-hidden transition-all duration-500 ${
-                      isActive ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
+
+                    <div className={`overflow-hidden transition-all duration-500 ${isActive ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      }`}>
                       <div className="border-t border-gray-800 pt-4">
                         <h4 className="text-sm font-medium text-white mb-3 uppercase tracking-wider" aria-label="Features included">Features</h4>
                         <div className="space-y-2" itemProp="featureList">
@@ -567,7 +574,7 @@ const PremiumERPProducts = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="text-xs text-gray-500 mt-4" aria-label={`${module.features.length} features included`}>
                       {module.features.length} features included
                     </div>
@@ -587,7 +594,7 @@ const PremiumERPProducts = () => {
                 Our ERP solution delivers enterprise-grade features that scale with your business:
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => {
                 const IconComponent = feature.icon;
@@ -626,20 +633,20 @@ const PremiumERPProducts = () => {
               <h2 className="text-4xl md:text-5xl font-normal mb-6 text-white" itemProp="name">Platforms</h2>
               <p className="text-xl text-gray-400 font-normal" itemProp="description">Access your business suite anywhere, anytime</p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="group border border-gray-800 rounded-xl p-8 hover:border-gray-600 hover:bg-white/5 transition-all duration-500" itemProp="itemListElement" itemScope itemType="https://schema.org/SoftwareApplication">
                 <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300" aria-label="Web platform" aria-hidden="true">🌐</div>
                 <h3 className="text-xl font-normal text-white mb-3" itemProp="operatingSystem">Web</h3>
                 <p className="text-gray-400 font-normal" itemProp="description">Full-featured browser interface</p>
               </div>
-              
+
               <div className="group border border-gray-800 rounded-xl p-8 hover:border-gray-600 hover:bg-white/5 transition-all duration-500" itemProp="itemListElement" itemScope itemType="https://schema.org/SoftwareApplication">
                 <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300" aria-label="Mobile platform" aria-hidden="true">📱</div>
                 <h3 className="text-xl font-normal text-white mb-3" itemProp="operatingSystem">Mobile</h3>
                 <p className="text-gray-400 font-normal" itemProp="description">Native iOS & Android apps</p>
               </div>
-              
+
               <div className="group border border-gray-800 rounded-xl p-8 hover:border-gray-600 hover:bg-white/5 transition-all duration-500" itemProp="itemListElement" itemScope itemType="https://schema.org/SoftwareApplication">
                 <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300" aria-label="Desktop platform" aria-hidden="true">💻</div>
                 <h3 className="text-xl font-normal text-white mb-3" itemProp="operatingSystem">Desktop</h3>
@@ -657,7 +664,7 @@ const PremiumERPProducts = () => {
               <p className="text-xl text-gray-400 font-normal max-w-2xl mx-auto">
                 Discover how our ERP system can unify your processes and accelerate growth.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="group px-8 py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2"
                   aria-label="Get started with ERP software"
