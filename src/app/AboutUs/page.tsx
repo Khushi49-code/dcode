@@ -572,6 +572,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
+import Link from "next/link";
 import DarkVeil from "@/components/ReactBit/DarkVeil";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { ChevronDown, Target, Eye, Users, ExternalLink, MissionIcon, ValuesIcon, Globe } from 'lucide-react';
@@ -1122,7 +1123,7 @@ const AboutUsPage = () => {
 
                 <div className="flex-1">
                   <div className="mb-8">
-                    <h3 className="text-3xl font-normal mb-2 text-white" itemProp="name">Dev Padhya</h3>
+            
                     <p className="text-blue-400 font-medium text-lg tracking-wide" itemProp="jobTitle">
                       Founder & CEO
                     </p>

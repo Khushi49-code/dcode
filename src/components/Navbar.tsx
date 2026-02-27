@@ -1448,17 +1448,6 @@
 // // export default Navbar;
 
 
-
-
-
-
-
-
-
-
-
-
-
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from 'react';
@@ -1530,7 +1519,7 @@ const Navbar = ({ currentPath = "/" }) => {
           path: "/Product/chopada",
           description: "Specialized application for business management",
           icon: "📲"
-        }
+        },
       ]
     },
     { name: "Blog", path: "/Blog" },
@@ -1686,7 +1675,7 @@ const Navbar = ({ currentPath = "/" }) => {
                       >
                         <div className="bg-white  text-g backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl shadow-black/10 overflow-hidden">
                           <div className="p-2">
-                            {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
+                            {item.dropdownItems?.map((dropdownItem, dropdownIndex) => (
                               <a
                                 key={dropdownIndex}
                                 href={dropdownItem.path}
@@ -1750,7 +1739,7 @@ const Navbar = ({ currentPath = "/" }) => {
                       >
                         <div className="bg-white backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl shadow-black/10 overflow-hidden">
                           <div className="p-2">
-                            {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
+                            {item.dropdownItems?.map((dropdownItem, dropdownIndex) => (
                               <a
                                 key={dropdownIndex}
                                 href={dropdownItem.path}

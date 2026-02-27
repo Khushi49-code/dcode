@@ -16,7 +16,7 @@ const DATA = {
   name: "Dev Padhya",
   role: "Founder & CEO",
   company: "Dcodes Technologies",
-  image: "/ceo.jpg", // Ensure your photo is in /public/ceo.jpg
+  image: "/ceo.jpg", 
   tagline: "Tech Visionary | Digital Transformation Leader | AI & Growth Strategist",
   quote: "Visibility is the foundation of scalability, and technology is the engine of growth.",
   hindiQuote: "बिकने के लिए दिखना जरूरी है!",
@@ -70,7 +70,7 @@ export default function CEOProfilePage() {
               <div className="flex flex-wrap gap-5 justify-center lg:justify-start">
                 <a href="#contact" className="px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-xl shadow-blue-900/20">
                   Scale Digitally <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                </a>  
               </div>
             </div>
 
@@ -207,13 +207,14 @@ export default function CEOProfilePage() {
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               {/* Primary Action */}
-              <a 
-                href="ceo@dcodestech.com" 
-                className="w-full sm:w-auto px-12 py-6 bg-blue-600 text-white rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-blue-500 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-900/20"
-              >
-                <Mail size={22} /> Email Dev Padhya
-              </a>
-              
+            <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=ceo@dcodestech.com&su=Business%20Inquiry&body=Hello%20CEO%20Team,%0A%0AI%20would%20like%20to%20connect%20with%20you."
+  target="_blank"
+  className="w-full sm:w-auto px-12 py-6 bg-blue-600 text-white rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-blue-500 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-900/20"
+>
+  <Mail size={22} /> Email To CEO 
+</a>
+
               {/* Secondary Action */}
               <a 
                 href="https://www.linkedin.com/in/dev-padhya/" 
