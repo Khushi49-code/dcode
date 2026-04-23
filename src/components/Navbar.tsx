@@ -1449,7 +1449,7 @@
 
 
 "use client";
-import Image from "next/image";
+import Image from "next/image";``
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowUp, ChevronDown, Search, Globe } from 'lucide-react';
 
@@ -1508,17 +1508,23 @@ const Navbar = ({ currentPath = "/" }) => {
           description: "Comprehensive enterprise resource planning",
           icon: "🏢"
         },
-         { 
-           name: "Hospital Management System", 
-           path: "/Product/hospitalManagement", 
-           description: "Complete healthcare facility management",
-           icon: "🏥"
+        {
+          name: "Hospital Management System",
+          path: "/Product/hospitalManagement",
+          description: "Complete healthcare facility management",
+          icon: "🏥"
         },
         {
           name: "Chopada App",
           path: "/Product/chopada",
           description: "Specialized application for business management",
           icon: "📲"
+        },
+        {
+          name: "Ticket System",
+          path: "/Product/ticket",
+          description: "Manage support tickets, customer queries, and issue tracking with an efficient and organized system",
+          icon: "🎫",
         },
       ]
     },
@@ -1612,8 +1618,8 @@ const Navbar = ({ currentPath = "/" }) => {
       {/* Main Navbar */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${isScrolled
-            ? '  backdrop-blur-xl border-b border-gray-200 shadow-lg'
-            : 'bg-transparent'
+          ? '  backdrop-blur-xl border-b border-gray-200 shadow-lg'
+          : 'bg-transparent'
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1669,8 +1675,8 @@ const Navbar = ({ currentPath = "/" }) => {
                       {/* Services Dropdown Menu */}
                       <div
                         className={`absolute top-full left-0 mt-2 w-80  transition-all duration-300 ease-out ${isServicesOpen
-                            ? 'opacity-100 visible translate-y-0'
-                            : 'opacity-0 invisible translate-y-2'
+                          ? 'opacity-100 visible translate-y-0'
+                          : 'opacity-0 invisible translate-y-2'
                           }`}
                       >
                         <div className="bg-white  text-g backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl shadow-black/10 overflow-hidden">
@@ -1733,8 +1739,8 @@ const Navbar = ({ currentPath = "/" }) => {
                       {/* Product Dropdown Menu */}
                       <div
                         className={`absolute top-full left-0 mt-2 w-80 transition-all duration-300 ease-out ${isProductOpen
-                            ? 'opacity-100 visible translate-y-0'
-                            : 'opacity-0 invisible translate-y-2'
+                          ? 'opacity-100 visible translate-y-0'
+                          : 'opacity-0 invisible translate-y-2'
                           }`}
                       >
                         <div className="bg-white backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl shadow-black/10 overflow-hidden">
@@ -1839,8 +1845,8 @@ const Navbar = ({ currentPath = "/" }) => {
       {/* Mobile Sidebar Overlay */}
       <div
         className={`fixed inset-0 z-50 md:hidden transition-all duration-500 ease-out ${isSidebarOpen
-            ? 'opacity-100 pointer-events-auto'
-            : 'opacity-0 pointer-events-none'
+          ? 'opacity-100 pointer-events-auto'
+          : 'opacity-0 pointer-events-none'
           }`}
       >
         {/* Backdrop */}
@@ -2132,8 +2138,8 @@ export default Navbar;
 //   alt="Dcodes Logo"
 //   width={150}
 //   height={70}
-//   className="cursor-pointer transition-transform duration-300 hover:scale-105 
-//              w-[120px] sm:w-[130px] md:w-[140px] lg:w-[150px] 
+//   className="cursor-pointer transition-transform duration-300 hover:scale-105
+//              w-[120px] sm:w-[130px] md:w-[140px] lg:w-[150px]
 //              h-auto object-contain"
 // />
 
