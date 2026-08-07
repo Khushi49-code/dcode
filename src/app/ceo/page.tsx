@@ -513,7 +513,7 @@ export default function DevPadhyaPage() {
               {!imageError ? (
                 <Image
                   className="portrait__img"
-                  src="/dev_padhya.png"
+                  src="/Dev_Padhya.png"
                   alt="Dev Padhya - Founder & CEO of Dcodes Technologies"
                   title="Dev Padhya - Founder & CEO of Dcodes Technologies"
                   width={420}
