@@ -138,8 +138,8 @@ const MILESTONES = [
 ];
 
 const NUMBERS = [
-  { num: "8+", label: "Years Experience" },
-  { num: "150+", label: "Projects Delivered" },
+  { num: "10+", label: "Years Experience" },
+  { num: "250+", label: "Projects Delivered" },
   { num: "100+", label: "Businesses Empowered" },
   { num: "20+", label: "Technologies" },
   { num: "15+", label: "Industries" },
