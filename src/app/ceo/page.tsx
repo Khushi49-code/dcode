@@ -563,24 +563,7 @@ export default function DevPadhyaPage() {
       </section>
 
       {/* Trust Bar - Between Hero and Body */}
-      <div className="trust-bar-wrapper">
-        <div className="container">
-          <div className="trust-bar">
-            <div className="trust-bar__label">
-              <span>Trusted By</span>
-              <strong>Leading Brands</strong>
-            </div>
-            <div className="trust-bar__brands">
-              {BRANDS.map((brand) => (
-                <span className="trust-bar__brand" key={brand}>
-                  {brand}
-                </span>
-              ))}
-              <span className="trust-bar__more">+ More</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       
       {/* ============================ ABOUT ============================ */}
       <section className="section" id="who">
