@@ -45,6 +45,7 @@ import {
   Server,
   User,
 } from "lucide-react";
+import Image from "next/image";
 
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T>(null);
@@ -510,11 +511,14 @@ export default function DevPadhyaPage() {
           <div className="hero__grid">
             <Reveal className="hero__portrait">
               {!imageError ? (
-                <img
+                <Image
                   className="portrait__img"
                   src="/dev_padhya.png"
                   alt="Dev Padhya - Founder & CEO of Dcodes Technologies"
                   title="Dev Padhya - Founder & CEO of Dcodes Technologies"
+                  width={420}
+                  height={560}
+                  priority
                   onError={() => setImageError(true)}
                 />
               ) : (
