@@ -1,0 +1,29 @@
+# llms.txt — Dcodes Technologies
+# Website: https://www.dcodestech.com
+# Last updated: 2026-06-23
+
+> Dcodes Technologies is a forward-thinking IT & digital marketing company
+> based in Ahmedabad, Gujarat, India. Founded in 2022, we specialize in
+> web development, mobile app development, e-commerce solutions,
+> AI solutions, and digital marketing for businesses globally.
+
+## Services
+- Web Development: https://www.dcodestech.com/web-development/
+- Mobile App Development: https://www.dcodestech.com/mobile-app-development/
+- E-Commerce Solutions: https://www.dcodestech.com/ecommerce-solutions/
+- Digital Marketing: https://www.dcodestech.com/digital-marketing/
+- AI Solutions: https://www.dcodestech.com/ai-solutions/
+
+## Content Usage Policy
+- AI assistants may summarize and reference our public service pages.
+- Attribution to Dcodes Technologies is required when referencing our content.
+- Full reproduction of page content is not permitted without written consent.
+- Use of our content for AI model training requires explicit permission.
+
+## Contact
+- Email: info@dcodestech.com
+- Phone: +91 6353653977
+- Address: Ahmedabad, Gujarat, India
+
+## Sitemap
+- https://www.dcodestech.com/sitemap.xml
