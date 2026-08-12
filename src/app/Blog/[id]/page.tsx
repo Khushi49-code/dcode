@@ -534,7 +534,7 @@ export default function BlogDetailPage() {
                     Let's talk about how Dcodes Technologies can help you build it.
                   </p>
                   <Link
-                    href="/contact"
+                    href="/connect"
                     className="inline-flex items-center justify-center w-full px-4 py-3 bg-white text-black text-sm font-medium rounded hover:bg-gray-200 transition-all duration-300"
                     aria-label="Contact Dcodes Technologies"
                   >
